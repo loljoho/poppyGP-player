@@ -1,0 +1,175 @@
+<!doctype html>
+<html class="no-js" ng-app="gpApp">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+
+  <!-- Page Title
+  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+  <title ng-bind="title"></title>
+
+  <!-- Metadata
+  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+  <meta name="description" content="">
+  <meta name="viewport" content="width=device-width">
+
+
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <link href="http://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css" rel="stylesheet">
+  <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,300,300italic,400italic,600,200" rel="stylesheet">
+
+
+  <!-- Inject Vendor Stylesheets
+  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+  <!-- build:css({.tmp/serve,src}) styles/vendor.css -->
+  <!-- bower:css -->
+  <!-- endbower -->
+  <!-- endbuild -->
+
+
+  <!-- Inject Compiled Sass
+  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+  <!-- build:css({.tmp/serve,src}) styles/app.css -->
+  <!-- inject:css -->
+  <!-- endinject -->
+  <!-- endbuild -->
+
+
+  <!-- Browser Compatibility
+  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+  <!-- build:js(src) scripts/modernizr.js -->
+  <script src="../bower_components/modernizr/modernizr.js"></script>
+  <!-- endbuild -->
+
+
+</head>
+<body layout="column" ng-controller="MainController as main">
+
+  <!--[if lt IE 10]>
+    <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+  <![endif]-->
+
+  <!-- Site Toolbar
+  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+  <md-toolbar class="gp-toolbar gp-toolbar-main" layout="row">
+    <div class="md-toolbar-tools">
+
+      <gp-brand></gp-brand>
+
+      <span flex></span>
+
+      <span>main.sidenavIsOpen = {{ main.sidenavIsOpen }}</span>
+
+      <span flex></span>
+
+      <md-button class="md-icon-button" ng-click="main.toggleFullscreen()">
+        <md-icon class="material-icons">fullscreen</md-icon>
+      </md-button>
+
+    </div>
+  </md-toolbar>
+
+
+
+
+
+  <!-- Main Row
+  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+
+  <main layout="row" flex>
+
+
+
+
+    <!-- Playlist Sidenav
+    –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+
+    <md-sidenav class="md-sidenav-left md-whiteframe-z2"
+                md-component-id="left"
+                md-is-open="main.sidenavIsOpen"
+                md-is-locked-open="$mdMedia('gt-md') && main.sidenavIsOpen"
+                layout="column">
+      <md-toolbar class="gp-toolbar" hide-gt-md>
+      </md-toolbar>
+      <md-content layout-padding flex>
+        <gp-playlist>
+
+        </gp-playlist>
+      </md-content>
+
+    </md-sidenav>
+
+
+
+
+    <!-- Main Column
+    –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+
+    <div class="gp-main" layout="column" layout-gt-md="row" layout-fill>
+
+
+
+
+      <!-- Video Container
+      ––––––––––––––––––––––––––––––––––––––––––––––––––
+
+      <div class="gp-video-container" flex="45" flex-md="55" flex-lg="65" flex-gt-lg="75">
+      -->
+      <div class="gp-video-container" flex>
+
+        <gp-player flex layout-fill channel-id="20560398">
+        </gp-player>
+
+      </div><!--.gp-video-container-->
+
+
+      <!-- Site Content
+      –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+
+      <md-sidenav class="gp-content"
+                  md-component-id="right"
+                  md-is-open="!main.isFullscreen"
+                  md-is-locked-open="!main.isFullscreen"
+                  flex
+                  layout="row"
+                  layout-gt-md="column">
+
+        <md-content flex layout-fill layout="column" md-scroll-y ng-include="'app/layout/content/content.html'">
+        </md-content>
+
+      </md-sidenav>
+
+
+    </div><!--.gp-main-->
+
+  </main>
+
+
+  <!-- Inject Vendor Scripts
+  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+
+  <!-- build:js(src) scripts/vendor.js -->
+  <!-- bower:js -->
+  <!-- endbower -->
+  <!-- endbuild -->
+
+
+  <!-- Inject App Scripts
+  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+
+  <!-- build:js({.tmp/serve,.tmp/partials,src}) scripts/app.js -->
+  <!-- inject:js -->
+  <!-- endinject -->
+
+
+  <!-- Inject Angular Partials
+  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+
+  <!-- inject:partials -->
+  <!-- endinject -->
+  <!-- endbuild -->
+
+</body>
+</html>

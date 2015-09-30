@@ -1,0 +1,86 @@
+# -------------------------------
+# AngularJS Gitignore by Joho
+# -------------------------------
+# Version   v0.5.3
+# Created   17-Oct-2014
+# Updated   03-Sep-2015
+# Docs      http://git-scm.com/docs/gitignore
+
+*.xspf
+
+# -------------------------------
+# Bower & npm
+# -------------------------------
+
+bower_components
+node_modules
+npm-debug.log*
+
+
+# -------------------------------
+# Build & Test
+# -------------------------------
+
+.tmp/
+build/
+dist/
+*.css.map
+.yo-rc.json
+.sass-cache/
+
+
+# -------------------------------
+# Runtime Data & Generated Files
+# -------------------------------
+
+coverage/
+journal/
+lib-cov/
+logs/
+pids/
+report/
+results/
+*.out
+*.pid
+*.seed
+
+
+# -------------------------------
+# Temporary files
+# -------------------------------
+
+temp
+tmp
+*.tmp
+*.tmp.*
+
+
+# -------------------------------
+# Miscellaneous
+# -------------------------------
+
+*.7z
+*.dmg
+*.gz
+*.iso
+*.jar
+*.rar
+*.tar
+*.zip
+
+*.log
+*.sql
+*.sqlite
+
+!.gitkeep
+tmp
+.DS_STORE
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+.idea
+app/jspm_packages
+*.lnk
