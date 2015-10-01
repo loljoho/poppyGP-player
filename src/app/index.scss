@@ -184,7 +184,12 @@ body {
 }
 
 md-toolbar.gp-toolbar {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
   @include all-height(36px);
+  background: transparent;
   background: rgba(34, 34, 34, 1.00);
   &.gp-toolbar-main {
     z-index: 500;
@@ -262,6 +267,42 @@ md-sidenav.md-sidenav-left {
   .gp-content.md-locked-open {
     @include all-height(100%);
     @include all-width(25%);
+  }
+}
+
+.sidebar {
+  margin-top: 36px;
+  background-color: #222;
+  md-icon {
+    color: #fff;
+    &.md-svg-icon {
+      > span {
+        > svg {
+          display: inline;
+          height: 24px;
+          width: auto;
+          text-align: center;
+          margin-bottom: 8px;
+          &.paypal {
+            height: 20px;
+          }
+          &.bitcoin {
+            margin-left: 4px;
+            height: 22px;
+          }
+          &.reddit {
+          }
+        }
+      }
+    }
+  }
+}
+
+md-sidenav.md-sidenav-left {
+  margin-top: 36px;
+  background: transparent;
+  md-content.sidenav-content {
+    background: transparent;
   }
 }
 

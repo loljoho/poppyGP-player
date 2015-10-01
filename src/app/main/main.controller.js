@@ -6,7 +6,7 @@
     .controller('MainController', MainController);
 
   /** @ngInject */
-  function MainController($timeout, $mdMedia, $mdSidenav, $mdUtil) {
+  function MainController($timeout, $mdMedia, $mdSidenav) {
     var self = this;
 
     self.toggleSidenav = toggleSidenav;
@@ -28,14 +28,14 @@
     function toggleSidenav() {
       $timeout(function() {
         self.sidenavIsOpen = !self.sidenavIsOpen;
-        $mdSidenav('left').toggle();
+        $mdSidenav('right').toggle();
       }, 100);
     }
     function closeSidenav() {
       if(self.sidenavIsOpen) {
         $timeout(function() {
           self.sidenavIsOpen = false;
-          $mdSidenav('left').close();
+          $mdSidenav('right').close();
         }, 100);
       }
     }
@@ -43,7 +43,7 @@
       if(!self.sidenavIsOpen) {
         $timeout(function() {
           self.sidenavIsOpen = true;
-          $mdSidenav('left').open();
+          $mdSidenav('right').open();
         }, 100);
       }
     }

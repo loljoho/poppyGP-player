@@ -1,4 +1,13 @@
-
+gp-player {
+  .video-player {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+  }
+}
+/*
 gp-player {
   box-size: border-box;
   display: flex;
@@ -48,3 +57,4 @@ gp-player {
     padding-bottom: 42.55%;
   }
 }
+*/
