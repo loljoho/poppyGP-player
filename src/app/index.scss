@@ -9,6 +9,8 @@
 /* Variables
 –––––––––––––––––––––––––––––––––––––––––––––––––– */
 
+$active-color: #2ab4a5;
+
 $device-breakpoints: (
   // mobile portrait
   xs-sm: 360px,
@@ -246,25 +248,31 @@ md-sidenav.md-sidenav-left {
   background-color: #222;
   .md-button.md-icon-button {
     margin: 0;
-  }
-  md-icon {
-    color: #fff;
-    &.md-svg-icon {
-      > span {
-        > svg {
-          display: inline;
-          height: 24px;
-          width: auto;
-          text-align: center;
-          margin-bottom: 8px;
-          &.paypal {
-            height: 20px;
-          }
-          &.bitcoin {
-            margin-left: 4px;
-            height: 22px;
-          }
-          &.reddit {
+    &.active {
+      md-icon {
+        color: $active-color;
+      }
+    }
+    md-icon {
+      color: #fff;
+      &.md-svg-icon {
+        > span {
+          > svg {
+            display: inline;
+            height: 24px;
+            width: auto;
+            text-align: center;
+            margin-bottom: 8px;
+            &.paypal {
+              height: 20px;
+            }
+            &.bitcoin {
+              margin-left: 4px;
+              height: 23px;
+            }
+            &.reddit {
+              height: 22px;
+            }
           }
         }
       }
