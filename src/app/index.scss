@@ -55,6 +55,24 @@ $viewport-md: $viewport-md-sm;
 $viewport-lg: 1200px;
 $viewport-xl: $viewport-lg-md;
 
+// ngMaterial Easing Curves
+//--------------------------------------------
+$swift-ease-out-duration: 0.4s !default;
+$swift-ease-out-timing-function: cubic-bezier(0.25, 0.8, 0.25, 1) !default;
+$swift-ease-out: all $swift-ease-out-duration $swift-ease-out-timing-function !default;
+
+$swift-ease-in-duration: 0.3s !default;
+$swift-ease-in-timing-function: cubic-bezier(0.55, 0, 0.55, 0.2) !default;
+$swift-ease-in: all $swift-ease-in-duration $swift-ease-in-timing-function !default;
+
+$swift-ease-in-out-duration: 0.5s !default;
+$swift-ease-in-out-timing-function: cubic-bezier(0.35, 0, 0.25, 1) !default;
+$swift-ease-in-out: all $swift-ease-in-out-duration $swift-ease-in-out-timing-function !default;
+
+// Theme
+// ------------------------------
+$toolbar-color: rgba(34, 34, 34, 1.00);
+
 
 /* Functions
 –––––––––––––––––––––––––––––––––––––––––––––––––– */
@@ -62,7 +80,6 @@ $viewport-xl: $viewport-lg-md;
 
 // Retrieve name of next breakpoint (or null for last)
 // ------------------------------
-
 @function next-bp($name, $bps: $device-breakpoints, $names: map-keys($bps)) {
   $n: index($names, $name);
   @return if($n < length($names), nth($names, $n + 1), null);
@@ -70,7 +87,6 @@ $viewport-xl: $viewport-lg-md;
 
 // Retrieve breakpoint min width (or null for first)
 // ------------------------------
-
 @function min-bp($name, $bps: $device-breakpoints) {
   $min: map-get($bps, $name);
   @return if($min != 0, $min, null);
@@ -79,7 +95,6 @@ $viewport-xl: $viewport-lg-md;
 
 // Retrieve breakpoint max width (or null for last)
 // ------------------------------
-
 @function max-bp($name, $bps: $device-breakpoints) {
   $next: next-bp($name, $bps);
   @return if($next, min-bp($next, $bps) - 1px, null);
@@ -89,6 +104,17 @@ $viewport-xl: $viewport-lg-md;
 /* Mixins
 –––––––––––––––––––––––––––––––––––––––––––––––––– */
 
+@mixin all-height($height) {
+  max-height: $height !important;
+  min-height: $height !important;
+  height: $height !important;
+}
+
+@mixin all-width($width) {
+  max-width: $width !important;
+  min-width: $width !important;
+  width: $width !important;
+}
 
 // breakpoint <=
 // ------------------------------
@@ -141,18 +167,6 @@ html,
 body {
   overflow-x: hidden;
   overflow-y: hidden;
-}
-
-@mixin all-height($height) {
-  max-height: $height !important;
-  min-height: $height !important;
-  height: $height !important;
-}
-
-@mixin all-width($width) {
-  max-width: $width !important;
-  min-width: $width !important;
-  width: $width !important;
 }
 
 md-toolbar.gp-toolbar {
@@ -242,43 +256,6 @@ md-sidenav.md-sidenav-left {
   }
 }
 
-.sidebar {
-  margin-top: 36px;
-  @include all-width(48px);
-  background-color: #222;
-  .md-button.md-icon-button {
-    margin: 0;
-    &.active {
-      md-icon {
-        color: $active-color;
-      }
-    }
-    md-icon {
-      color: #fff;
-      &.md-svg-icon {
-        > span {
-          > svg {
-            display: inline;
-            height: 24px;
-            width: auto;
-            text-align: center;
-            margin-bottom: 8px;
-            &.paypal {
-              height: 20px;
-            }
-            &.bitcoin {
-              margin-left: 4px;
-              height: 23px;
-            }
-            &.reddit {
-              height: 22px;
-            }
-          }
-        }
-      }
-    }
-  }
-}
 
 md-sidenav.md-sidenav-left {
   margin-top: 36px;
