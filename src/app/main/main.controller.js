@@ -12,8 +12,10 @@
     self.toggleSidenav = toggleSidenav;
     self.sidenavIsOpen = false;
 
-    self.toggleFullscreen = toggleFullscreen;
-    self.isFullscreen = false;
+    self.toggleContent = toggleContent;
+    self.contentIsOpen = true;
+
+    self.activeSection = 0;
 
     activate();
 
@@ -49,31 +51,27 @@
     }
 
 
-    /* Fullscreen Controls
+    /* Content Controls
     –––––––––––––––––––––––––––––––––––––––––––––––––– */
 
-    function toggleFullscreen() {
-      if(!self.isFullscreen) {
-        self.isFullscreen = true;
-        closeSidenav();
+    function toggleContent() {
+      if(!self.contentIsOpen) {
+        self.contentIsOpen = true;
         closeContent();
       }
       else {
-        self.isFullscreen = false;
-        if($mdMedia('gt-lg')) {
-          openSidenav();
-        }
+        self.contentIsOpen = false;
         openContent();
       }
     }
     function closeContent() {
       $timeout(function() {
-        $mdSidenav('right').close();
+        $mdSidenav('left').close();
       }, 100);
     }
     function openContent() {
       $timeout(function() {
-        $mdSidenav('right').open();
+        $mdSidenav('left').open();
       }, 100);
     }
 

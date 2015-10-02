@@ -187,11 +187,27 @@ md-toolbar.gp-toolbar {
   }
 }
 
-md-sidenav.md-sidenav-left {
+md-sidenav.md-sidenav-right {
   background: transparent;
+  margin-top: 36px;
   @include all-width(256px);
   z-index: 900;
   .gp-toolbar {
+    background: transparent;
+  }
+}
+
+md-sidenav.md-sidenav-left {
+  background: transparent;
+  margin-top: 36px;
+  margin-left: 32px;
+  z-index: -1;
+  &.md-locked-open {
+    max-width: 320px;
+    min-width: 25%;
+    z-index: 200;
+  }
+  md-content.sidenav-content {
     background: transparent;
   }
 }
@@ -253,15 +269,6 @@ md-sidenav.md-sidenav-left {
   .gp-content.md-locked-open {
     @include all-height(100%);
     @include all-width(25%);
-  }
-}
-
-
-md-sidenav.md-sidenav-left {
-  margin-top: 36px;
-  background: transparent;
-  md-content.sidenav-content {
-    background: transparent;
   }
 }
 
