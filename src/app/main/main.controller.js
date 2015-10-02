@@ -35,12 +35,13 @@
       self.activeSection  = section;
 
       // open content panel if closed
-      if(!self.contentIsOpen) {
+      if(!self.contentIsOpen || !$mdSidenav('left').isOpen()) {
         openContent();
       }
       // close content panel if open && same section
       else if(self.contentIsOpen && previous === section) {
         closeContent();
+
       }
     }
 

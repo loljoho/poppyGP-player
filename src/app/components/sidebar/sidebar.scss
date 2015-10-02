@@ -22,15 +22,8 @@
     box-sizing: border-box;
   }
 
-  &> .md-button:first-child {
-    margin-top: -2px;
-  }
-  &> .md-button:last-child {
-    margin-bottom: -2px;
-  }
-
   .md-button {
-    margin: 2px auto;
+    margin: 4px auto;
 
     &.md-icon-button {
 

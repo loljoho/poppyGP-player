@@ -1,13 +1,12 @@
-
 /* Inject Bower Styles
 –––––––––––––––––––––––––––––––––––––––––––––––––– */
-
 // bower:scss
 // endbower
 
 
 /* Variables
 –––––––––––––––––––––––––––––––––––––––––––––––––– */
+
 
 $active-color: #2ab4a5;
 
@@ -57,6 +56,7 @@ $viewport-xl: $viewport-lg-md;
 
 // ngMaterial Easing Curves
 //--------------------------------------------
+
 $swift-ease-out-duration: 0.4s !default;
 $swift-ease-out-timing-function: cubic-bezier(0.25, 0.8, 0.25, 1) !default;
 $swift-ease-out: all $swift-ease-out-duration $swift-ease-out-timing-function !default;
@@ -71,12 +71,14 @@ $swift-ease-in-out: all $swift-ease-in-out-duration $swift-ease-in-out-timing-fu
 
 // Theme
 // ------------------------------
+
 $toolbar-color: rgba(34, 34, 34, 1.00);
+
+
 
 
 /* Functions
 –––––––––––––––––––––––––––––––––––––––––––––––––– */
-
 
 // Retrieve name of next breakpoint (or null for last)
 // ------------------------------
@@ -101,8 +103,11 @@ $toolbar-color: rgba(34, 34, 34, 1.00);
 }
 
 
+
+
 /* Mixins
 –––––––––––––––––––––––––––––––––––––––––––––––––– */
+
 
 @mixin all-height($height) {
   max-height: $height !important;
@@ -154,6 +159,12 @@ $toolbar-color: rgba(34, 34, 34, 1.00);
   }
 }
 
+
+
+
+/* Base
+–––––––––––––––––––––––––––––––––––––––––––––––––– */
+
 html {
   font-family: 'Source Sans Pro', 'Helvetica Neue', Verdana, sans-serif;
   height: 100%;
@@ -168,6 +179,12 @@ body {
   overflow-x: hidden;
   overflow-y: hidden;
 }
+
+
+
+
+/* Layout
+–––––––––––––––––––––––––––––––––––––––––––––––––– */
 
 md-toolbar.gp-toolbar {
   position: absolute;
@@ -202,12 +219,26 @@ md-sidenav.md-sidenav-left {
   margin-top: 36px;
   margin-left: 32px;
   &.md-locked-open {
-    max-width: 320px;
-    min-width: 25%;
+    max-width: 360px;
+    width: 25%;
     z-index: 200;
   }
   md-content.sidenav-content {
     background: transparent;
+  }
+}
+
+@media (min-width: $viewport-sm) {
+  md-sidenav.md-sidenav-left {
+    min-width: 280px;
+  }
+}
+
+@media (min-width: $viewport-md) {
+  md-sidenav.md-sidenav-left {
+    &.md-locked-open {
+      min-width: 320px;
+    }
   }
 }
 
@@ -223,58 +254,36 @@ md-sidenav.md-sidenav-left {
   padding: 0.2em 0;
 }
 
-// remove md-sidenav backdrop above md
-@media (min-width: 960px) {
+
+
+
+/* Responsive
+–––––––––––––––––––––––––––––––––––––––––––––––––– */
+
+// remove md-sidenav backdrop above sm
+@media (min-width: $viewport-sm) {
   md-backdrop.md-sidenav-backdrop {
     display: none;
   }
 }
 
 @media (max-width: $viewport-md - 1px) {
-  .gp-video-container {
-    @include all-width(100%);
-    @include all-height(45%);
-  }
-  .gp-content.md-locked-open {
-    @include all-width(100%);
-    @include all-height(65%);
-  }
+
 }
 @media (min-width: $viewport-md) {
-  .gp-video-container {
-    @include all-height(100%);
-    //@include all-width(65%);
-  }
-  .gp-content.md-locked-open {
-    @include all-height(100%);
-    @include all-width(35%);
-  }
+
 }
 @media (min-width: $viewport-lg) {
-  .gp-video-container {
-    @include all-height(100%);
-    //@include all-width(65%);
-  }
-  .gp-content.md-locked-open {
-    @include all-height(100%);
-    @include all-width(35%);
-  }
+
 }
 @media (min-width: $viewport-xl) {
-  .gp-video-container {
-    @include all-height(100%);
-    //@include all-width(75%);
-  }
-  .gp-content.md-locked-open {
-    @include all-height(100%);
-    @include all-width(25%);
-  }
+
 }
+
 
 
 
 /* Inject Styles
 –––––––––––––––––––––––––––––––––––––––––––––––––– */
-
 // injector
 // endinjector
