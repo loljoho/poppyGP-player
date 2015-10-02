@@ -64,10 +64,6 @@
 
       <span flex></span>
 
-      <span>main.sidenavIsOpen = {{ main.sidenavIsOpen }}</span>
-
-      <span flex></span>
-
       <md-button class="md-icon-button" ng-click="main.toggleSidenav()">
         <md-icon class="material-icons">menu</md-icon>
       </md-button>
@@ -87,23 +83,21 @@
 
 
 
-    <!-- Content
+    <!-- Content Sidenav
     –––––––––––––––––––––––––––––––––––––––––––––––––– -->
 
     <md-sidenav class="md-whiteframe-z2 md-sidenav-left"
                 md-is-locked-open="$mdMedia('gt-lg') && main.contentIsOpen"
                 md-component-id="left">
       <md-content class="md-scroll-y" flex layout="column" layout-fill>
-        <div flex class="content-section" ng-show="main.activeSection == 0 || main.activeSection == 2 || main.activeSection == 3"
+        <div flex class="content-section" ng-show="main.activeSection == 0"
              ng-include="'app/content/info.html'">
         </div>
         <div flex class="content-section" ng-show="main.activeSection == 1"
              ng-include="'app/content/webchat.html'">
-          Webchat
         </div>
         <div flex class="content-section" ng-show="main.activeSection == 4"
              ng-include="'app/content/reddit.html'">
-          Reddit
         </div>
       </md-content>
     </md-sidenav>
@@ -113,6 +107,9 @@
 
 
 
+    <!-- Content Sidebar
+    –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+
     <div class="gp-sidebar md-whiteframe-z3">
 
       <md-button class="md-icon-button" ng-class="{'active' : main.activeSection == 0}" ng-click="main.toggleSection(0)">
@@ -121,24 +118,6 @@
 
       <md-button class="md-icon-button" ng-class="{'active' : main.activeSection == 1}" ng-click="main.toggleSection(1)">
         <md-icon class="material-icons">chat</md-icon>
-      </md-button>
-
-      <md-button class="md-icon-button" ng-class="{'active' : main.activeSection == 2}" ng-click="main.toggleSection(2)">
-        <md-icon class="md-svg-icon">
-          <svg width="24" height="24" viewBox="0 0 24 24" class="paypal">
-            <path d="M20.64 3.065c0.602 0.295 1.127 0.715 1.512 1.23 0.809 1.085 1.037 2.563 0.676 4.394-0.365 1.852-1.182 3.416-2.371 4.548-0.218 0.227-0.451 0.439-0.699 0.635-1.274 1.003-2.883 1.533-4.653 1.533h-5.626l-1.513 7.095h-3.104l0.236-1.085h1.081l1.513-7.095h4.413c4.225 0 7.756-2.603 8.701-7.030 1.072-5.012-2.522-7.29-5.611-7.29h-10.53l-4.666 21.415h3.563l-0.563 2.585h6.18l1.513-7.095h4.413c4.225 0 7.756-2.603 8.701-7.030 0.79-3.696-0.956-5.905-3.167-6.81zM9.899 4.361h3.027c1.514 0 2.522 1.302 2.081 2.929-0.378 1.627-1.954 2.929-3.531 2.929h-2.901l1.324-5.858z">
-            </path>
-          </svg>
-        </md-icon>
-      </md-button>
-
-      <md-button class="md-icon-button" ng-class="{'active' : main.activeSection == 3}" ng-click="main.toggleSection(3)">
-        <md-icon class="md-svg-icon">
-          <svg width="24" height="24" viewBox="0 0 24 24" class="bitcoin">
-            <path d="M15.629 8.571q0.241 2.438-1.754 3.455 1.567 0.375 2.344 1.379t0.603 2.866q-0.094 0.951-0.435 1.674t-0.864 1.192-1.299 0.783-1.627 0.462-1.949 0.201v3.415h-2.063v-3.362q-1.071 0-1.634-0.013v3.375h-2.063v-3.415q-0.241 0-0.723-0.007t-0.737-0.007h-2.679l0.415-2.451h1.487q0.67 0 0.777-0.683v-5.384h0.214q-0.080-0.013-0.214-0.013v-3.844q-0.174-0.911-1.192-0.911h-1.487v-2.196l2.839 0.013q0.857 0 1.299-0.013v-3.375h2.063v3.308q1.098-0.027 1.634-0.027v-3.281h2.063v3.375q1.058 0.094 1.875 0.301t1.513 0.603 1.105 1.045 0.489 1.533zM12.75 15.871q0-0.482-0.201-0.857t-0.496-0.616-0.77-0.408-0.877-0.248-0.991-0.121-0.924-0.040-0.864 0.013-0.636 0.013v4.527q0.107 0 0.496 0.007t0.643 0.007 0.71-0.020 0.783-0.054 0.763-0.114 0.743-0.188 0.636-0.281 0.529-0.402 0.328-0.536 0.127-0.683zM11.799 9.496q0-0.442-0.167-0.783t-0.408-0.563-0.643-0.375-0.737-0.221-0.824-0.107-0.777-0.033-0.723 0.013-0.529 0.007v4.112q0.067 0 0.462 0.007t0.623 0 0.67-0.027 0.737-0.074 0.69-0.147 0.65-0.248 0.496-0.362 0.362-0.516 0.121-0.683z">
-            </path>
-          </svg>
-        </md-icon>
       </md-button>
 
       <md-button class="md-icon-button" ng-class="{'active' : main.activeSection == 4}" ng-click="main.toggleSection(4)">
@@ -156,10 +135,6 @@
     </div>
 
     <!-- end sidebar ––––––––––––––––––––––––––––––––– -->
-
-
-
-
 
 
 
@@ -188,9 +163,11 @@
                   md-component-id="right">
 
         <md-content layout-padding flex>
+
           <gp-playlist>
 
           </gp-playlist>
+
         </md-content>
 
       </md-sidenav>
@@ -203,6 +180,8 @@
   </main>
 
   <!-- end main row –––––––––––––––––––––––––––––––– -->
+
+
 
 
   <!-- Inject Vendor Scripts
