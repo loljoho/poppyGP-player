@@ -10,7 +10,6 @@
     var self = this;
 
     self.activeSection  = 0;
-    self.openSection    = openSection;
 
     activate();
 

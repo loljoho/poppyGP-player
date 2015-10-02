@@ -9,13 +9,14 @@
   function MainController($timeout, $mdMedia, $mdSidenav) {
     var self = this;
 
+    self.toggleSection = toggleSection;
+    self.activeSection = 0;
+
     self.toggleSidenav = toggleSidenav;
     self.sidenavIsOpen = false;
 
     self.toggleContent = toggleContent;
     self.contentIsOpen = true;
-
-    self.activeSection = 0;
 
     activate();
 
@@ -24,30 +25,49 @@
     }
 
 
+    /* Content Section Toggle
+    –––––––––––––––––––––––––––––––––––––––––––––––––– */
+
+    function toggleSection(section) {
+      var previous = self.activeSection;
+
+      // set new section
+      self.activeSection  = section;
+
+      // open content panel if closed
+      if(!self.contentIsOpen) {
+        openContent();
+      }
+      // close content panel if open && same section
+      else if(self.contentIsOpen && previous === section) {
+        closeContent();
+      }
+    }
+
+
     /* Sidenav Controls
     –––––––––––––––––––––––––––––––––––––––––––––––––– */
 
     function toggleSidenav() {
-      $timeout(function() {
-        self.sidenavIsOpen = !self.sidenavIsOpen;
-        $mdSidenav('right').toggle();
-      }, 100);
+      if(self.sidenavIsOpen) {
+        closeSidenav();
+        self.sidenavIsOpen = false;
+      }
+      else {
+        openSidenav();
+        self.sidenavIsOpen = true;
+      }
     }
     function closeSidenav() {
-      if(self.sidenavIsOpen) {
-        $timeout(function() {
-          self.sidenavIsOpen = false;
-          $mdSidenav('right').close();
-        }, 100);
-      }
+      $timeout(function() {
+        $mdSidenav('right').close();
+      }, 100);
+
     }
     function openSidenav() {
-      if(!self.sidenavIsOpen) {
-        $timeout(function() {
-          self.sidenavIsOpen = true;
-          $mdSidenav('right').open();
-        }, 100);
-      }
+      $timeout(function() {
+        $mdSidenav('right').open();
+      }, 100);
     }
 
 
@@ -55,21 +75,21 @@
     –––––––––––––––––––––––––––––––––––––––––––––––––– */
 
     function toggleContent() {
-      if(!self.contentIsOpen) {
-        self.contentIsOpen = true;
+      if(self.contentIsOpen) {
         closeContent();
       }
       else {
-        self.contentIsOpen = false;
         openContent();
       }
     }
     function closeContent() {
+      self.contentIsOpen = false;
       $timeout(function() {
         $mdSidenav('left').close();
       }, 100);
     }
     function openContent() {
+      self.contentIsOpen = true;
       $timeout(function() {
         $mdSidenav('left').open();
       }, 100);
