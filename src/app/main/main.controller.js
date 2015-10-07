@@ -92,7 +92,6 @@
       $timeout(function() {
         $mdSidenav('right').close();
       }, 100);
-
     }
     function openSidenav() {
       $timeout(function() {

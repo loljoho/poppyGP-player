@@ -4,7 +4,6 @@
   angular
     .module('gpApp')
     .config(ngProviderConfig)
-    .config(ngMaterialConfig)
     .config(x2jsHttpConfig);
 
   /** @ngInject */
@@ -45,22 +44,6 @@
     $httpProvider.interceptors.push('xmlHttpInterceptor');
 
 
-  }
-
-  /** @ngInject */
-  function ngMaterialConfig($mdIconProvider) {
-    $mdIconProvider
-      .icon('announce',     './assets/icons/announce.svg')
-      .icon('arrow-left',	  './assets/icons/arrow-left.svg')
-      .icon('arrow-right',  './assets/icons/arrow-right.svg')
-      .icon('bitcoin',      './assets/icons/bitcoin.svg')
-      .icon('close',        './assets/icons/close.svg')
-      .icon('menu',         './assets/icons/menu.svg')
-      .icon('paypal',       './assets/icons/paypal.svg')
-      .icon('people',       './assets/icons/people.svg')
-      .icon('reddit',       './assets/icons/reddit.svg')
-      .icon('settings',	  	'./assets/icons/settings.svg')
-      .icon('twitter',	  	'./assets/icons/twitter.svg');
   }
 
 })();

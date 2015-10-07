@@ -43,11 +43,38 @@
 
 
 </head>
-<body layout="column" ng-controller="MainController as main">
+<body layout="column"
+      ng-controller="MainController as main">
+
+
+
+
+
+
+
+
+  <!-- Browse Happy
+  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
 
   <!--[if lt IE 10]>
-    <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+    <p class="browsehappy">
+      You are using an
+      <strong>
+        outdated
+      </strong>
+      browser. Please
+      <a href="http://browsehappy.com/">
+        upgrade your browser
+      </a>
+      to improve your experience.
+    </p>
   <![endif]-->
+
+  <!-- end browse happy –––––––––––––––––––––––––––– -->
+
+
+
+
 
 
 
@@ -58,18 +85,28 @@
   <md-toolbar class="gp-toolbar gp-toolbar-main" layout="row">
     <div class="md-toolbar-tools">
 
+
+      <!-- Brand -->
       <gp-brand></gp-brand>
 
+      <!-- Spacer -->
       <span flex></span>
 
-      <md-button class="md-icon-button" ng-click="main.toggleSidenav()">
+      <!-- Toggle Playlist -->
+      <md-button class="md-icon-button"
+                 ng-click="main.toggleSidenav()">
         <md-icon class="material-icons">menu</md-icon>
       </md-button>
+
 
     </div>
   </md-toolbar>
 
   <!-- end toolbar ––––––––––––––––––––––––––––––––– -->
+
+
+
+
 
 
 
@@ -82,24 +119,42 @@
 
 
 
-    <!-- Content Sidenav
+
+
+
+
+    <!-- Content mdSidenav
     –––––––––––––––––––––––––––––––––––––––––––––––––– -->
 
     <md-sidenav class="md-whiteframe-z2 md-sidenav-left"
                 md-is-locked-open="main.contentIsOpen"
                 md-component-id="left">
 
+
       <md-content class="md-scroll-y" flex layout="column" layout-fill>
-        <div flex class="content-section" ng-show="main.activeSection == 0"
+
+
+        <div flex
+             class="content-section"
+             ng-show="main.activeSection == 0"
              ng-include="'app/content/info.html'">
         </div>
-        <div flex class="content-section" ng-show="main.activeSection == 1"
+
+        <div flex
+             class="content-section"
+             ng-show="main.activeSection == 1"
              ng-include="'app/content/webchat.html'">
         </div>
-        <div flex class="content-section" ng-show="main.activeSection == 2"
+
+        <div flex
+             class="content-section"
+             ng-show="main.activeSection == 2"
              ng-include="'app/content/reddit.html'">
         </div>
+
+
       </md-content>
+
 
     </md-sidenav>
 
@@ -112,7 +167,10 @@
     –––––––––––––––––––––––––––––––––––––––––––––––––– -->
 
     <div class="gp-sidebar md-whiteframe-z3">
+      <!-- TODO: ng-repeat when Angular-Material irons out md-icon issues -->
 
+
+      <!-- Toggle Info -->
       <md-button class="md-icon-button"
                  ng-class="{'active' : main.activeSection == 0}"
                  ng-click="main.toggleSection(0)"
@@ -120,6 +178,7 @@
         <md-icon class="material-icons">info</md-icon>
       </md-button>
 
+      <!-- Toggle IRC -->
       <md-button class="md-icon-button"
                  ng-class="{'active' : main.activeSection == 1}"
                  ng-click="main.toggleSection(1)"
@@ -127,6 +186,7 @@
         <md-icon class="material-icons">chat</md-icon>
       </md-button>
 
+      <!-- Toggle Reddit -->
       <md-button class="md-icon-button"
                  ng-class="{'active' : main.activeSection == 2}"
                  ng-click="main.toggleSection(2)"
@@ -138,15 +198,21 @@
         </md-icon>
       </md-button>
 
+      <!-- Toggle Sidebar -->
       <md-button class="md-icon-button"
                  ng-click="main.toggleContent()"
                  aria-label="Toggle Content">
         <md-icon class="material-icons">more_horiz</md-icon>
       </md-button>
 
+
     </div>
 
     <!-- end sidebar ––––––––––––––––––––––––––––––––– -->
+
+
+
+
 
 
 
@@ -156,8 +222,13 @@
 
     <div class="gp-main" layout="column" layout-gt-md="row" layout-fill>
 
-        <gp-player flex layout-fill channel-id="20560398">
+
+        <!-- Player -->
+        <gp-player flex
+                   layout-fill
+                   channel-id="20560398">
         </gp-player>
+
 
     </div>
 
@@ -166,18 +237,24 @@
 
 
 
-    <!-- Playlist
+
+
+
+
+    <!-- Playlist mdSidenav
     –––––––––––––––––––––––––––––––––––––––––––––––––– -->
 
     <md-sidenav class="md-whiteframe-z2 md-sidenav-right"
                 md-is-locked-open="$mdMedia('gt-lg') && main.sidenavIsOpen"
                 md-component-id="right">
 
-      <md-content layout-padding flex>
+      <md-content flex
+                  layout-padding>
 
-        <gp-playlist>
 
-        </gp-playlist>
+        <!-- Playlist -->
+        <gp-playlist></gp-playlist>
+
 
       </md-content>
 
@@ -188,9 +265,17 @@
 
 
 
+
+
+
+
   </main>
 
   <!-- end main row –––––––––––––––––––––––––––––––– -->
+
+
+
+
 
 
 
