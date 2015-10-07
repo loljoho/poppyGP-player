@@ -6,12 +6,10 @@
     .factory('playlistService', playlistServiceFactory);
 
   /** @ngInject */
-  function playlistServiceFactory($resource, $log) {
+  function playlistServiceFactory($resource) {
 
     var url = './data/playlist.xspf';
     var resource = $resource(url);
-
-    $log.info('Resource: ' + url);
 
     return resource;
   }
