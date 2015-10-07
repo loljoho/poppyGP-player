@@ -3,7 +3,8 @@
 
   angular
     .module('gpApp')
-    .controller('PlaylistController', PlaylistController);
+    .controller('PlaylistController', PlaylistController)
+    .filter('isPast', isPast);
 
 
   /** @ngInject */
@@ -14,6 +15,7 @@
     self.trackList = [];
     self.startTime = moment('2015-10-07T14:22:00-05:00');
     self.currentTime = moment();
+    self.currentTrack = {};
 
     //self.parseTrackList = parseTrackList;
 
@@ -23,8 +25,10 @@
       getTrackList();
     }
 
-    /* Temporary Client-Side Playlist Parser
+    /* Temporary Client-Side Playlist Parsing
     –––––––––––––––––––––––––––––––––––––––––––––––––– */
+
+
     function getTrackList() {
 
 
@@ -36,8 +40,7 @@
 
         var trackList = [];
 
-        $log.info(response.playlist.trackList.track.length);
-
+        var pointer = 0;
 
         for(var i=0; i < response.playlist.trackList.track.length; i++) {
 
@@ -48,21 +51,27 @@
           //trackItem.location = trackItem.filepath.split('\/').splice(-1,1).toString();
           trackItem.duration = response.playlist.trackList.track[i].duration;
           //trackItem.duration = moment.duration(response.playlist.trackList.track[i].duration, 'ms').toJSON();
-          trackItem.playtime = counter;
+          trackItem.playtime = moment(counter);
           trackItem.showtime = trackItem.playtime.format('ddd DD MMM HH:mm:ss');
 
-          //if(response.playlist.trackList.track[i].title) {
-            //trackItem.title = response.playlist.trackList.track[i].title;
-          //} else {
-            trackItem.title = trackItem.filename.replace(/\./g, ' ');
-          //}
+          // Replace '.' with ' '
+          trackItem.title = trackItem.filename.replace(/\./g, ' ');
+
+          // Remove strings
+          trackItem.title = trackItem.title.replace(/avi|mkv|mp4|x264|XviD|-asd|-joho|-jj|-Nub|DaRmEtH|English|/g, '');
 
           // add to trackList
           trackList.push(trackItem);
           counter.add(response.playlist.trackList.track[i].duration, 'ms');
 
+          if(counter.isBefore()) {
+            pointer = i;
+          }
+
         } // for
         self.trackList = trackList;
+
+        self.currentTrack = trackList[pointer];
 
 
       }, function(errorMsg) {
@@ -75,6 +84,15 @@
 
 
   } // PlaylistController
+
+  /** @ngInject */
+  function isPast(moment) {
+    return function(items) {
+      return items.filter(function(item) {
+        return moment(item.playtime).isAfter();
+      });
+    };
+  }
 
 
 })();
