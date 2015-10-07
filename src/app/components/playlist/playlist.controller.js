@@ -48,7 +48,7 @@
           //trackItem.location = trackItem.filepath.split('\/').splice(-1,1).toString();
           trackItem.duration = response.playlist.trackList.track[i].duration;
           //trackItem.duration = moment.duration(response.playlist.trackList.track[i].duration, 'ms').toJSON();
-          trackItem.playtime = counter.add(response.playlist.trackList.track[i].duration, 'ms');
+          trackItem.playtime = counter;
           trackItem.showtime = trackItem.playtime.format('ddd DD MMM HH:mm:ss');
 
           //if(response.playlist.trackList.track[i].title) {
@@ -59,6 +59,7 @@
 
           // add to trackList
           trackList.push(trackItem);
+          counter.add(response.playlist.trackList.track[i].duration, 'ms');
 
         } // for
         self.trackList = trackList;
