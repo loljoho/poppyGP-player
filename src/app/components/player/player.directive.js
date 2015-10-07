@@ -9,7 +9,7 @@
   function gpPlayerDirective() {
     return {
       restrict: 'E',
-      replace: false,
+      replace: true,
       transclude: true,
       templateUrl: 'app/components/player/player.html',
       scope: {

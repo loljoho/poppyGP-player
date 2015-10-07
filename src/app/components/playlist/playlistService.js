@@ -8,7 +8,7 @@
   /** @ngInject */
   function playlistServiceFactory($resource) {
 
-    var url = 'assets/data/playlist.xspf';
+    var url = './data/playlist.xspf';
     var resource = $resource(url);
 
     return resource;

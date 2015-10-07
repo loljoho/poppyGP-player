@@ -1,27 +1,13 @@
-<!--
-<md-virtual-repeat-container id="playlistContainer" md-orient-vertical>
-  <div md-virtual-repeat="track in playlist.parseTrackList()" class="repeated-item">
 
--->
-  <md-subheader>
-    {{ playlist.startTime }}
-  </md-subheader>
-  <md-list>
-    <md-list-item class="md-3-line" ng-repeat="track in playlist.trackList">
-      <div class="md-list-item-text" layout="column">
-        <h3>{{ track.title }}</h3>
-        <h4>{{ track.showtime }}</h4>
-        <p>{{ track.duration }}</p>
-      </div>
-    </md-list-item>
-  </md-list>
-
-  <!--
-  <div ng-repeat="track in playlist.trackList">
-    {{ track.title }}
-    {{ track.duration }}
-    {{ track.showtime }}
-  </div>
-
-</md-virtual-repeat-container>
--->
+<!-- TODO: md-virtual-repeat -->
+<md-list>
+  <md-list-item class="md-2-line" ng-repeat="track in playlist.trackList">
+    <div class="md-list-item-text" layout="column">
+      <h3>{{ track.showtime }}</h3>
+      <p>{{ track.title }}</p>
+      <!--
+      <p>{{ track.duration }}</p>
+      -->
+    </div>
+  </md-list-item>
+</md-list>

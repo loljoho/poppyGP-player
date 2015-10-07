@@ -6,14 +6,20 @@
     .controller('MainController', MainController);
 
   /** @ngInject */
-  function MainController($timeout, $mdMedia, $mdSidenav, $mdUtil) {
+  function MainController($log, $timeout, $mdMedia, $mdSidenav) {
     var self = this;
 
+    // Content Section
+    self.toggleSection = toggleSection;
+    self.activeSection = 0;
+
+    // Playlist Sidenav
     self.toggleSidenav = toggleSidenav;
     self.sidenavIsOpen = false;
 
-    self.toggleFullscreen = toggleFullscreen;
-    self.isFullscreen = false;
+    // Content Panel
+    self.toggleContent = toggleContent;
+    self.contentIsOpen = true;
 
     activate();
 
@@ -22,56 +28,72 @@
     }
 
 
-    /* Sidenav Controls
+    /* Content Section Toggle
     –––––––––––––––––––––––––––––––––––––––––––––––––– */
 
-    function toggleSidenav() {
-      $timeout(function() {
-        self.sidenavIsOpen = !self.sidenavIsOpen;
-        $mdSidenav('left').toggle();
-      }, 100);
-    }
-    function closeSidenav() {
-      if(self.sidenavIsOpen) {
-        $timeout(function() {
-          self.sidenavIsOpen = false;
-          $mdSidenav('left').close();
-        }, 100);
+    function toggleSection(section) {
+      var previous = self.activeSection;
+
+      // set new section
+      self.activeSection  = section;
+
+      // close content panel if open && same section
+      if(self.contentIsOpen && previous === section) {
+        $log.info('Close content panel');
+        closeContent();
       }
-    }
-    function openSidenav() {
-      if(!self.sidenavIsOpen) {
-        $timeout(function() {
-          self.sidenavIsOpen = true;
-          $mdSidenav('left').open();
-        }, 100);
+      // open content panel if closed
+      else if(!self.contentIsOpen || !$mdSidenav('left').isOpen()) {
+        $log.info('Open content panel');
+        openContent();
       }
     }
 
 
-    /* Fullscreen Controls
+    /* Content Controls
     –––––––––––––––––––––––––––––––––––––––––––––––––– */
 
-    function toggleFullscreen() {
-      if(!self.isFullscreen) {
-        self.isFullscreen = true;
-        closeSidenav();
+    function toggleContent() {
+      if(self.contentIsOpen) {
         closeContent();
       }
       else {
-        self.isFullscreen = false;
-        if($mdMedia('gt-lg')) {
-          openSidenav();
-        }
         openContent();
       }
     }
     function closeContent() {
+      self.contentIsOpen = false;
+      $timeout(function() {
+        $mdSidenav('left').close();
+      }, 100);
+    }
+    function openContent() {
+      self.contentIsOpen = true;
+      $timeout(function() {
+        $mdSidenav('left').open();
+      }, 100);
+    }
+
+
+    /* Sidenav Controls
+    –––––––––––––––––––––––––––––––––––––––––––––––––– */
+
+    function toggleSidenav() {
+      if(self.sidenavIsOpen) {
+        closeSidenav();
+        self.sidenavIsOpen = false;
+      }
+      else {
+        openSidenav();
+        self.sidenavIsOpen = true;
+      }
+    }
+    function closeSidenav() {
       $timeout(function() {
         $mdSidenav('right').close();
       }, 100);
     }
-    function openContent() {
+    function openSidenav() {
       $timeout(function() {
         $mdSidenav('right').open();
       }, 100);

@@ -10,6 +10,7 @@
       'ngResource',
       'ngMaterial',
 
+      'angularMoment',
       'xml'
     ]);
 
