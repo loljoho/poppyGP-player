@@ -26,31 +26,47 @@
     /* Temporary Client-Side Playlist Parser
     –––––––––––––––––––––––––––––––––––––––––––––––––– */
     function getTrackList() {
+
+
+
+      // $resource.get
       playlistService.get().$promise.then(function(response) {
+
         var counter = moment(self.startTime);
+
         var trackList = [];
+
         $log.info(response.playlist.trackList.track.length);
+
+
         for(var i=0; i < response.playlist.trackList.track.length; i++) {
+
           var trackItem = {};
+
           trackItem.filepath = decodeURIComponent(response.playlist.trackList.track[i].location);
           trackItem.filename = trackItem.filepath.split('\/').pop().toString();
-          trackItem.location = trackItem.filepath.split('\/').splice(-1,1).toString();
+          //trackItem.location = trackItem.filepath.split('\/').splice(-1,1).toString();
           trackItem.duration = response.playlist.trackList.track[i].duration;
           //trackItem.duration = moment.duration(response.playlist.trackList.track[i].duration, 'ms').toJSON();
           trackItem.playtime = counter.add(response.playlist.trackList.track[i].duration, 'ms');
           trackItem.showtime = trackItem.playtime.format('ddd DD MMM HH:mm:ss');
 
-          if(response.playlist.trackList.track[i].title) {
-            trackItem.title = response.playlist.trackList.track[i].title;
-          }
-          else {
-            trackItem.title = trackItem.filename;
-          }
+          //if(response.playlist.trackList.track[i].title) {
+            //trackItem.title = response.playlist.trackList.track[i].title;
+          //} else {
+            trackItem.title = trackItem.filename.replace(/\./g, ' ');
+          //}
+
+          // add to trackList
           trackList.push(trackItem);
+
         } // for
         self.trackList = trackList;
+
+
       }, function(errorMsg) {
         self.trackList = errorMsg;
+
       });
 
 
