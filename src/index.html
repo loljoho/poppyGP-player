@@ -140,11 +140,13 @@
              ng-include="'app/content/info.html'">
         </div>
 
+
         <div flex
              class="content-section"
              ng-show="main.activeSection == 1"
              ng-include="'app/content/webchat.html'">
         </div>
+
 
         <div flex
              class="content-section"
@@ -178,6 +180,7 @@
         <md-icon class="material-icons">info</md-icon>
       </md-button>
 
+
       <!-- Toggle IRC -->
       <md-button class="md-icon-button"
                  ng-class="{'active' : main.activeSection == 1}"
@@ -185,6 +188,7 @@
                  aria-label="WebIRC">
         <md-icon class="material-icons">chat</md-icon>
       </md-button>
+
 
       <!-- Toggle Reddit -->
       <md-button class="md-icon-button"
@@ -197,6 +201,7 @@
           </svg>
         </md-icon>
       </md-button>
+
 
       <!-- Toggle Sidebar -->
       <md-button class="md-icon-button"
