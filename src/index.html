@@ -296,15 +296,28 @@
   <!-- end toolbar ––––––––––––––––––––––––––––––––– -->
 
 
-<!-- Toggle Fullscreen -->
+
+
+
+
+
+
+<!-- Fullscreen Toggle Button
+–––––––––––––––––––––––––––––––––––––––––––––––––– -->
+
 <md-button class="md-icon-button button-fullscreen"
            ng-class="{ 'is-fullscreen' : main.isFullscreen }"
            ng-click="main.toggleFullscreen()"
            aria-label="Toggle Fullscreen">
+
   <md-icon class="material-icons" ng-if="!main.isFullscreen">fullscreen</md-icon>
   <md-icon class="material-icons" ng-if="main.isFullscreen">fullscreen_exit</md-icon>
+
   <md-tooltip>Toggle Fullscreen</md-tooltip>
+
 </md-button>
+
+<!-- end button –––––––––––––––––––––––––––––––––– -->
 
 
 
