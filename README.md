@@ -1,7 +1,11 @@
 poppyGP-player
 ==============
 
+
+
 > Platform-agnostic community-centered video channel AngularJS single-page web application by Joho (Jonathan Ho)
+
+
 
 
 Overview
@@ -19,6 +23,8 @@ __poppyGP-player__ is a single-page web application for an embedded  RTMP video 
  - __KiwIRC__ embedded webchat
 
 Development is centered around the (new) HTML5 video player by UStream
+
+
 
 
 Objectives
@@ -47,10 +53,65 @@ Below is an outline of the objectives for which _poppyGP-player__ will be develo
  - __Google Analytics__
 
 
+
+
+Application
+-----------
+
+The AngularJS application was scaffolded using the [Gulp-Angular](https://github.com/Swiip/generator-gulp-angular) Yeoman generator, and its structure is based on concepts outlined in [@john_papa's Style Guide](https://github.com/johnpapa/angular-styleguide#application-structure).
+
+__Application Structure__
+
+```
+src/
+├── app/
+│   ├── core/                       --> CORE MODULE
+│   │   ├── core.module.js
+│   │   ├── core.config.js
+│   │   ├── core.constants.js
+│   │   └── core.run.js
+│   ├── common/                     --> SHARED MODULES
+│   │   ├── exception/              --> Exception Handler
+│   │   ├── logger/                 --> Logging Service
+│   │   └── router/                 --> Router Provider
+│   │
+│   ├── components/                 --> APP COMPONENTS
+│   │   ├── 
+│   │   ├── 
+│   │   └── 
+│   ├── layout/                     --> APP LAYOUT
+│   │   ├── 
+│   │   ├── 
+│   │   └── 
+│   │
+│   ├── 
+│   └──
+├── assets/
+│   ├── data/                       --> Data Files
+│   ├── icons/                      --> SVG Icons
+│   ├── images/                     --> PNG/JPG/GIF
+│   └── touch/                      --> Mobile/Touch Icons
+├──
+├──
+├──
+├──
+│   ├──
+│   ├──
+│   ├──
+│   ├──
+│   ├──
+│   └──
+└──
+```
+
+
+
 Contributing
 ------------
 
 Send me an e-mail or message--you'll probably be the first person to inquire ;)
+
+
 
 
 Miscellanous
