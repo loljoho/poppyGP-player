@@ -10,16 +10,23 @@
     var self = this;
 
     // Content Section
-    self.toggleSection = toggleSection;
-    self.activeSection = 0;
+    self.toggleSection    = toggleSection;
+    self.activeSection    = 0;
 
     // Playlist Sidenav
-    self.toggleSidenav = toggleSidenav;
-    self.sidenavIsOpen = false;
+    self.toggleSidenav    = toggleSidenav;
+    self.sidenavIsOpen    = false;
 
     // Content Panel
-    self.toggleContent = toggleContent;
-    self.contentIsOpen = true;
+    self.toggleContent    = toggleContent;
+    self.contentIsOpen    = true;
+
+    // Fullscreen
+    self.toggleFullscreen = toggleFullscreen;
+    self.isFullscreen     = false;
+
+
+
 
     activate();
 
@@ -81,22 +88,38 @@
     function toggleSidenav() {
       if(self.sidenavIsOpen) {
         closeSidenav();
-        self.sidenavIsOpen = false;
       }
       else {
         openSidenav();
-        self.sidenavIsOpen = true;
       }
     }
     function closeSidenav() {
+      self.sidenavIsOpen = false;
       $timeout(function() {
         $mdSidenav('right').close();
       }, 100);
     }
     function openSidenav() {
+      self.sidenavIsOpen = true;
       $timeout(function() {
         $mdSidenav('right').open();
       }, 100);
+    }
+
+
+    /* Toggle Fullscreen
+    –––––––––––––––––––––––––––––––––––––––––––––––––– */
+
+    function toggleFullscreen() {
+      if(self.isFullscreen) {
+        openSidenav();
+        openContent();
+      }
+      else {
+        closeSidenav();
+        closeContent();        
+      }
+      self.isFullscreen = !self.isFullscreen;
     }
 
   }

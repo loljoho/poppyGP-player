@@ -1,24 +1,25 @@
 /* Variables
 –––––––––––––––––––––––––––––––––––––––––––––––––– */
 
-$toolbar-color: rgba(0, 0, 0, 0.70);
+$toolbar-color:   rgba(0, 0, 0, 0.70);
+$toolbar-height:  48px;
 
 
 
 
-/* Toolbar
+/* Toolbar Styles
 –––––––––––––––––––––––––––––––––––––––––––––––––– */
 
 gp-toolbar {
 
   > md-toolbar {
 
-    @include all-height(42px);
+    @include all-height($toolbar-height);
     background: $toolbar-color;
 
     >.md-toolbar-tools {
 
-      @include all-height(42px);
+      @include all-height($toolbar-height);
       background: $toolbar-color;
 
     }
@@ -27,36 +28,107 @@ gp-toolbar {
 
 
 
-  /* Top Toolbar
-  –––––––––––––––––––––––––––––––––––––––––––––––––– */
+/* Top Toolbar
+–––––––––––––––––––––––––––––––––––––––––––––––––– */
+
+gp-toolbar {
 
   &.gp-toolbar-top {
 
 
 
   }
-
-
-
-
-  /* Bottom Toolbar
-  –––––––––––––––––––––––––––––––––––––––––––––––––– */
-  &.gp-toolbar-bottom {
-
-
-
-  }
-
-
-
-
 }
 
 
 
 
-/* Sidebar
+/* Bottom Toolbar
 –––––––––––––––––––––––––––––––––––––––––––––––––– */
+
+  &.gp-toolbar-bottom {
+
+    // Fix pesky Reddit icon (temporary)
+    // ------------------------------
+
+    .reddit {
+      margin-bottom: 8px;
+    }
+
+    .md-button {
+      &.active {
+        md-icon {
+          color: $active-color;
+          svg {
+            fill: $active-color;
+          }
+        }
+      }
+    }
+  }
+
+
+
+
+/* Fullscreen Toggle Animation
+–––––––––––––––––––––––––––––––––––––––––––––––––– */
+
+
+  &.is-fullscreen {
+    position: absolute;
+    &.gp-toolbar-top {
+      transform: translate3d(0, -100%, 0);
+    }
+
+    &.gp-toolbar-bottom {
+      transform: translate3d(0, 100%, 0);
+    }
+  }
+
+  &.is-fullscreen-add, 
+  &.is-fullscreen-remove {
+    position: relative;
+    transition: 0.2s ease-in all;
+  }
+
+  &.is-fullscreen-add-active,
+  &.is-fullscreen-remove-active {
+    transition: height $swift-ease-in-duration $swift-ease-in-timing-function,
+                min-height $swift-ease-in-duration $swift-ease-in-timing-function;
+  }
+
+  &.is-fullscreen-add.is-fullscreen-add-active,
+  &.is-fullscreen-remove.is-fullscreen-remove-active {
+    transition: $swift-ease-out;
+  }
+
+}
+
+.button-fullscreen {
+
+  bottom: 2px;
+  position: absolute;
+  right: 8px;
+  z-index: 1000;
+
+  md-icon {
+    color: #fff;
+  }
+
+  &.is-fullscreen {
+    .md-ripple-container {
+      background-color: rgba(255, 0, 0, 0.11);
+    }
+  }
+}
+
+
+
+
+/* Sidebar Old
+–––––––––––––––––––––––––––––––––––––––––––––––––– */
+
+
 .gp-sidebar {
   box-sizing: border-box;
   display: flex;

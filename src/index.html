@@ -80,7 +80,8 @@
   <!-- Site Toolbar
   –––––––––––––––––––––––––––––––––––––––––––––––––– -->
 
-  <gp-toolbar class="gp-toolbar-top">
+  <gp-toolbar class="gp-toolbar-top"
+              ng-class="{ 'is-fullscreen' : main.isFullscreen }">
 
 
     <!-- Brand -->
@@ -123,7 +124,7 @@
     <!-- Content mdSidenav
     –––––––––––––––––––––––––––––––––––––––––––––––––– -->
 
-    <md-sidenav class="md-whiteframe-z2 md-sidenav-left"
+    <md-sidenav class="md-whiteframe-z2 md-sidenav-left gp-content-sidenav"
                 md-is-locked-open="main.contentIsOpen"
                 md-component-id="left">
 
@@ -193,7 +194,7 @@
     <!-- Playlist mdSidenav
     –––––––––––––––––––––––––––––––––––––––––––––––––– -->
 
-    <md-sidenav class="md-whiteframe-z2 md-sidenav-right"
+    <md-sidenav class="md-whiteframe-z2 md-sidenav-right gp-playlist-sidenav"
                 md-is-locked-open="$mdMedia('gt-lg') && main.sidenavIsOpen"
                 md-component-id="right">
 
@@ -232,7 +233,8 @@
   <!-- Bottom Toolbar
   –––––––––––––––––––––––––––––––––––––––––––––––––– -->
 
-  <gp-toolbar class="gp-toolbar-bottom">
+  <gp-toolbar class="gp-toolbar-bottom"
+              ng-class="{ 'is-fullscreen' : main.isFullscreen }">
 
     <!-- Toggle Info -->
     <md-button class="md-icon-button"
@@ -289,18 +291,20 @@
     <span flex></span>
 
 
-    <!-- Toggle Cinema Mode -->
-    <md-button class="md-icon-button"
-               ng-click="main.toggleCinema()"
-               aria-label="Toggle Fullscreen">
-      <md-icon class="material-icons" ng-if="main.isFullscreen">fullscreen</md-icon>
-      <md-icon class="material-icons" ng-if="!main.isFullscreen">fulscreen_exit</md-icon>
-    </md-button>
-
-
   </gp-toolbar>
 
   <!-- end toolbar ––––––––––––––––––––––––––––––––– -->
+
+
+<!-- Toggle Fullscreen -->
+<md-button class="md-icon-button button-fullscreen"
+           ng-class="{ 'is-fullscreen' : main.isFullscreen }"
+           ng-click="main.toggleFullscreen()"
+           aria-label="Toggle Fullscreen">
+  <md-icon class="material-icons" ng-if="!main.isFullscreen">fullscreen</md-icon>
+  <md-icon class="material-icons" ng-if="main.isFullscreen">fullscreen_exit</md-icon>
+  <md-tooltip>Toggle Fullscreen</md-tooltip>
+</md-button>
 
 
 

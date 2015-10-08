@@ -1,3 +1,8 @@
+.gp-content-sidenav,
+.gp-content-sidenav > md-content,
+.content-section {
+  overflow-x: hidden;
+}
 
 .content-section {
   position: relative;
