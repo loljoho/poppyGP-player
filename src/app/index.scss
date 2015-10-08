@@ -72,7 +72,7 @@ $swift-ease-in-out: all $swift-ease-in-out-duration $swift-ease-in-out-timing-fu
 // Theme
 // ------------------------------
 
-$toolbar-color: rgba(34, 34, 34, 1.00);
+$toolbar-color: rgba(0, 0, 0, 0.87);
 
 
 
@@ -180,6 +180,10 @@ body {
   overflow-y: hidden;
 }
 
+.gp-main {
+  position: relative;
+}
+
 
 
 
@@ -187,15 +191,14 @@ body {
 –––––––––––––––––––––––––––––––––––––––––––––––––– */
 
 md-toolbar.gp-toolbar {
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
   @include all-height(36px);
-  background: transparent;
-  background: rgba(34, 34, 34, 1.00);
+
   &.gp-toolbar-main {
     z-index: 500;
+    background: $toolbar-color;
+    .md-toolbar-tools {
+      z-index: 500;
+    }
   }
   .md-toolbar-tools {
     @include all-height(36px);
@@ -206,7 +209,6 @@ md-toolbar.gp-toolbar {
 
 md-sidenav.md-sidenav-right {
   background: transparent;
-  margin-top: 36px;
   @include all-width(256px);
   z-index: 900;
   .gp-toolbar {
@@ -216,7 +218,6 @@ md-sidenav.md-sidenav-right {
 
 md-sidenav.md-sidenav-left {
   background: transparent;
-  margin-top: 36px;
   margin-left: 32px;
   &.md-locked-open {
     max-width: 360px;
@@ -252,6 +253,9 @@ md-sidenav.md-sidenav-left {
   background: #ccc;
   color: #000;
   padding: 0.2em 0;
+}
+.twitter {
+  margin-bottom: 7px;
 }
 
 

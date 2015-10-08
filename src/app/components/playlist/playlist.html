@@ -1,7 +1,14 @@
 
 <!-- TODO: md-virtual-repeat -->
 <md-list>
-  <md-list-item class="md-2-line" ng-repeat="track in playlist.trackList">
+  <md-list-item class="md-3-line">
+    <div class="md-list-item-text" layout="column">
+      <h3>Current Track</h3>
+      <p>{{ playlist.currentTrack.title }}</p>
+    </div>
+  </md-list-item>
+  <md-list-item class="md-2-line"
+                ng-repeat="track in playlist.trackList | isPast">
     <div class="md-list-item-text" layout="column">
       <h3>{{ track.showtime }}</h3>
       <p>{{ track.title }}</p>
