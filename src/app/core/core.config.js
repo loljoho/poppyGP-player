@@ -2,29 +2,71 @@
   'use strict';
 
   angular
-    .module('gpApp')
-    .config(ngProviderConfig)
+    .module('gpApp.core')
+    .config(toastrConfig)
+    .config(configure)
     .config(x2jsHttpConfig);
 
-  /** @ngInject */
-  function ngProviderConfig($logProvider, $sceDelegateProvider, toastr) {
 
-    // Enable log
+
+
+  /* Configure Toastr
+  –––––––––––––––––––––––––––––––––––––––––––––––––– */
+
+  /** @ngInject */
+  function toastrConfig(toastr) {
+
+
+    // Configure Toastr
+    // ------------------------------
+
+    toastr.options.timeOut = 3000;
+    toastr.options.positionClass = 'toast-top-left';
+    toastr.options.preventDuplicates = true;
+    toastr.options.progressBar = true;
+
+
+  }
+
+
+
+
+  /* Configure Angular & Custom Providers
+  –––––––––––––––––––––––––––––––––––––––––––––––––– */
+
+  /** @ngInject */
+  function configure($logProvider, $sceDelegateProvider, exceptionHandlerProvider) {
+
+
+    // Enable Log
+    // ------------------------------
+
     $logProvider.debugEnabled(true);
 
+
+    // Configure common exception handler
+    // ------------------------------
+
+    exceptionHandlerProvider.configure('[poppyGP AngularJS Error]');
+
+
     // Whitelist Embed URLs
+    // ------------------------------
+
     $sceDelegateProvider.resourceUrlWhitelist([
       'self',
       'http://www.ustream.tv/embed/**',
       'https://www.ustream.tv/embed/**'
     ]);
 
-    // Set options third-party lib
-    toastr.options.timeOut = 3000;
-    toastr.options.positionClass = 'toast-top-right';
-    toastr.options.preventDuplicates = true;
-    toastr.options.progressBar = true;
+
   }
+
+
+
+
+  /* Configure x2js provider
+  –––––––––––––––––––––––––––––––––––––––––––––––––– */
 
   /** @ngInject */
   function x2jsHttpConfig($httpProvider, x2jsProvider) {

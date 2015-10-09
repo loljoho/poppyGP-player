@@ -1,8 +1,15 @@
 /* Variables
 –––––––––––––––––––––––––––––––––––––––––––––––––– */
 
-$toolbar-color:   rgba(0, 0, 0, 0.70);
-$toolbar-height:  48px;
+$toolbar-color:       rgba(34, 34, 34, 0.70);
+$toolbar-height:      48px;
+$button-active-color: #2ab4a5;
+
+/* end variables ––––––––––––––––––––––––––––––––– */
+
+
+
+
 
 
 
@@ -12,7 +19,7 @@ $toolbar-height:  48px;
 
 gp-toolbar {
 
-  > md-toolbar {
+  > md-toolbar.gp-toolbar {
 
     @include all-height($toolbar-height);
     background: $toolbar-color;
@@ -40,6 +47,12 @@ gp-toolbar {
   }
 }
 
+/* end toolbar ––––––––––––––––––––––––––––––––––– */
+
+
+
+
+
 
 
 
@@ -48,30 +61,44 @@ gp-toolbar {
 
   &.gp-toolbar-bottom {
 
-    // Fix pesky Reddit icon (temporary)
+
+    // Fix pesky icons (temporary)
     // ------------------------------
 
     .reddit {
-      margin-bottom: 8px;
+      margin-bottom: 7px;
     }
+    .twitter {
+      margin-bottom: 7px;
+    }
+
+
+    // Active button
+    // ------------------------------
 
     .md-button {
       &.active {
         md-icon {
-          color: $active-color;
+          color: $button-active-color;
           svg {
-            fill: $active-color;
+            fill: $button-active-color;
           }
         }
       }
     }
   }
 
+/* end toolbar ––––––––––––––––––––––––––––––––––– */
 
 
 
-/* Fullscreen Toggle Animation
-–––––––––––––––––––––––––––––––––––––––––––––––––– */
+
+
+
+
+
+  /* Fullscreen Toggle Animation
+  –––––––––––––––––––––––––––––––––––––––––––––––––– */
 
 
   &.is-fullscreen {
@@ -106,9 +133,9 @@ gp-toolbar {
 
 .button-fullscreen {
 
-  bottom: 2px;
+  bottom: 0;
   position: absolute;
-  right: 8px;
+  right: 0px;
   z-index: 500;
 
   md-icon {
@@ -120,74 +147,12 @@ gp-toolbar {
       background-color: rgba(255, 0, 0, 0.11);
     }
   }
+
+  /* end toggle –––––––––––––––––––––––––––––––––––– */
+
+
+
+
 }
 
-
-
-
-/* Sidebar Old
-–––––––––––––––––––––––––––––––––––––––––––––––––– */
-
-
-.gp-sidebar {
-  box-sizing: border-box;
-  display: flex;
-  flex-direction: column;
-
-  z-index: 100;
-
-  position: absolute;
-  top: 0;
-  left: 0;
-  bottom: 0;
-  margin-top: 36px;
-
-  background-color: $toolbar-color;
-
-  max-width: 36px;
-  min-height: 100%;
-
-  *,
-  *:before,
-  *:after {
-    box-sizing: border-box;
-  }
-
-  .md-button {
-    margin: 4px auto;
-
-    &.md-icon-button {
-
-      line-height: 32px;
-      min-height: 32px;
-      height: 32px;
-      width: 32px;
-
-
-      &.active {
-        md-icon {
-          color: $active-color;
-          svg {
-            fill: $active-color;
-          }
-        }
-      }
-    }
-  }
-  @media screen and (-ms-high-contrast: active) {
-    border-right: 1px solid #fff;
-  }
-}
-
-@media only screen and (min-width: 0) and (max-width: $viewport-sm) and (orientation: portrait) {
-  .gp-sidebar {
-    @include all-width(30px);
-  }
-}
-@media only screen and (min-width: 0) and (max-width: $viewport-sm) and (orientation: landscape) {
-  .gp-sidebar {
-    @include all-width(30px);
-  }
-}
-
-
+/* end toolbar ––––––––––––––––––––––––––––––––––– */

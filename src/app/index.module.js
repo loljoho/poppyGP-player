@@ -3,15 +3,23 @@
 
   angular
     .module('gpApp', [
-      'ngAnimate',
-      'ngCookies',
-      'ngTouch',
-      'ngSanitize',
-      'ngResource',
-      'ngMaterial',
 
-      'angularMoment',
-      'xml'
+
+      // Shared Modules
+      // ------------------------------
+
+      'gpApp.core',
+      'gpApp.components',
+
+
+      // Feature Modules
+      // ------------------------------
+
+      'gpApp.main',
+      'gpApp.content',
+      'gpApp.playlist'
+
+      
     ]);
 
 })();

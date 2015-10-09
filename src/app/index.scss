@@ -4,11 +4,10 @@
 // endbower
 
 
+
+
 /* Variables
 –––––––––––––––––––––––––––––––––––––––––––––––––– */
-
-
-$active-color: #2ab4a5;
 
 $device-breakpoints: (
   // mobile portrait
@@ -45,6 +44,7 @@ $viewport-lg-sm: map-get($device-breakpoints, lg-sm);
 $viewport-lg-md: map-get($device-breakpoints, lg-md);
 $viewport-lg-lg: map-get($device-breakpoints, lg-lg);
 
+
 // ngMaterial Breakpoints + xs/xl
 // ------------------------------
 
@@ -53,6 +53,7 @@ $viewport-sm: $viewport-sm-sm;
 $viewport-md: $viewport-md-sm;
 $viewport-lg: 1200px;
 $viewport-xl: $viewport-lg-md;
+
 
 // ngMaterial Easing Curves
 //--------------------------------------------
@@ -68,6 +69,12 @@ $swift-ease-in: all $swift-ease-in-duration $swift-ease-in-timing-function !defa
 $swift-ease-in-out-duration: 0.5s !default;
 $swift-ease-in-out-timing-function: cubic-bezier(0.35, 0, 0.25, 1) !default;
 $swift-ease-in-out: all $swift-ease-in-out-duration $swift-ease-in-out-timing-function !default;
+
+/* end variables ––––––––––––––––––––––––––––––––– */
+
+
+
+
 
 
 
@@ -97,6 +104,12 @@ $swift-ease-in-out: all $swift-ease-in-out-duration $swift-ease-in-out-timing-fu
   @return if($next, min-bp($next, $bps) - 1px, null);
 }
 
+/* end functions ––––––––––––––––––––––––––––––––– */
+
+
+
+
+
 
 
 
@@ -116,8 +129,10 @@ $swift-ease-in-out: all $swift-ease-in-out-duration $swift-ease-in-out-timing-fu
   width: $width !important;
 }
 
+
 // breakpoint <=
 // ------------------------------
+
 @mixin media-gt($name, $bps: $device-breakpoints) {
   $min: min-bp($name, $bps);
   @if $min {
@@ -130,8 +145,10 @@ $swift-ease-in-out: all $swift-ease-in-out-duration $swift-ease-in-out-timing-fu
   }
 }
 
+
 // < breakpoint
 // ------------------------------
+
 @mixin media-lt($name, $bps: $device-breakpoints) {
   $max: max-bp($name, $bps);
   @if $max {
@@ -144,8 +161,10 @@ $swift-ease-in-out: all $swift-ease-in-out-duration $swift-ease-in-out-timing-fu
   }
 }
 
+
 // breakpoint-min <= x < breakpoint-max
 // ------------------------------
+
 @mixin media($name, $bps: $grid-breakpoints) {
   @include media-gt($name, $bps) {
     @include media-lt($name, $bps) {
@@ -153,6 +172,12 @@ $swift-ease-in-out: all $swift-ease-in-out-duration $swift-ease-in-out-timing-fu
     }
   }
 }
+
+/* end mixins –––––––––––––––––––––––––––––––––––– */
+
+
+
+
 
 
 
@@ -166,6 +191,7 @@ html {
 }
 
 body {
+  background: #111111;
   height: 100%;
   position: relative;
 }
@@ -180,6 +206,8 @@ body {
   position: relative;
 }
 
+/* end base –––––––––––––––––––––––––––––––––––––– */
+
 
 
 
@@ -187,7 +215,7 @@ body {
 –––––––––––––––––––––––––––––––––––––––––––––––––– */
 
 md-sidenav.md-sidenav-right {
-  background: transparent;
+  //background: transparent;
   @include all-width(256px);
   z-index: 900;
 }
@@ -218,14 +246,13 @@ md-sidenav.md-sidenav-left {
   }
 }
 
+/* end layout –––––––––––––––––––––––––––––––––––– */
+
 .browsehappy {
   margin: 0.2em 0;
   background: #ccc;
   color: #000;
   padding: 0.2em 0;
-}
-.twitter {
-  margin-bottom: 7px;
 }
 
 

@@ -2,37 +2,54 @@
   'use strict';
 
   angular
-    .module('gpApp')
+    .module('gpApp.main')
     .controller('MainController', MainController);
 
   /** @ngInject */
   function MainController($log, $timeout, $mdMedia, $mdSidenav) {
     var self = this;
 
+
     // Content Section
+    // ------------------------------
+
     self.toggleSection    = toggleSection;
     self.activeSection    = 0;
 
+
     // Playlist Sidenav
+    // ------------------------------
+
     self.toggleSidenav    = toggleSidenav;
     self.sidenavIsOpen    = false;
 
+
     // Content Panel
+    // ------------------------------
+
     self.toggleContent    = toggleContent;
     self.contentIsOpen    = true;
 
+
     // Fullscreen
+    // ------------------------------
+
     self.toggleFullscreen = toggleFullscreen;
     self.isFullscreen     = false;
 
 
 
 
+    /* Controller Startup Logic
+    –––––––––––––––––––––––––––––––––––––––––––––––––– */
+
     activate();
 
     function activate() {
       self.sidenavIsOpen = $mdMedia('gt-lg') ? true : false;
     }
+
+
 
 
     /* Content Section Toggle
@@ -57,14 +74,15 @@
     }
 
 
+
+
     /* Content Controls
     –––––––––––––––––––––––––––––––––––––––––––––––––– */
 
     function toggleContent() {
       if(self.contentIsOpen) {
         closeContent();
-      }
-      else {
+      } else {
         openContent();
       }
     }
@@ -82,14 +100,15 @@
     }
 
 
+
+
     /* Sidenav Controls
     –––––––––––––––––––––––––––––––––––––––––––––––––– */
 
     function toggleSidenav() {
       if(self.sidenavIsOpen) {
         closeSidenav();
-      }
-      else {
+      } else {
         openSidenav();
       }
     }
@@ -107,20 +126,21 @@
     }
 
 
+
+
     /* Toggle Fullscreen
     –––––––––––––––––––––––––––––––––––––––––––––––––– */
 
     function toggleFullscreen() {
-      if(self.isFullscreen) {
-        openSidenav();
-        openContent();
-      }
-      else {
+      if(!self.isFullscreen) {
         closeSidenav();
-        closeContent();        
+        closeContent();
       }
       self.isFullscreen = !self.isFullscreen;
     }
+
+
+
 
   }
 })();

@@ -1,17 +1,26 @@
 <!doctype html>
-<html class="no-js" ng-app="gpApp">
+<html class="no-js" 
+      ng-app="gpApp"
+      ng-controller="MainController as main"
+      ng-swipe-left="main.toggleContent()"
+      ng-swipe-right="main.toggleSidenav()">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
 
+
   <!-- Page Title
   –––––––––––––––––––––––––––––––––––––––––––––––––– -->
   <title ng-bind="title"></title>
 
+
   <!-- Metadata
   –––––––––––––––––––––––––––––––––––––––––––––––––– -->
 
+
+  <!-- Fonts & Icons
+  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
 
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,300,300italic,400italic,600,200" rel="stylesheet">
@@ -41,8 +50,7 @@
 
 
 </head>
-<body layout="column"
-      ng-controller="MainController as main">
+<body layout="column">
 
 
 
@@ -54,19 +62,7 @@
   <!-- Browse Happy
   –––––––––––––––––––––––––––––––––––––––––––––––––– -->
 
-  <!--[if lt IE 10]>
-    <p class="browsehappy">
-      You are using an
-      <strong>
-        outdated
-      </strong>
-      browser. Please
-      <a href="http://browsehappy.com/">
-        upgrade your browser
-      </a>
-      to improve your experience.
-    </p>
-  <![endif]-->
+  <!--[if lt IE 10]><p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p><![endif]-->
 
   <!-- end browse happy –––––––––––––––––––––––––––– -->
 
@@ -90,7 +86,6 @@
     <!-- Spacer -->
     <span flex></span>
 
-
     <!-- Toggle Playlist -->
     <md-button class="md-icon-button"
                ng-click="main.toggleSidenav()">
@@ -112,7 +107,7 @@
   <!-- Main Row
   –––––––––––––––––––––––––––––––––––––––––––––––––– -->
 
-  <main layout="row" flex>
+  <div class="gp-main-row" layout="row" flex>
 
 
 
@@ -128,32 +123,7 @@
                 md-is-locked-open="main.contentIsOpen"
                 md-component-id="left">
 
-
-      <md-content class="md-scroll-y" flex layout="column" layout-fill>
-
-
-        <div flex
-             class="content-section"
-             ng-show="main.activeSection == 0"
-             ng-include="'app/content/info.html'">
-        </div>
-
-
-        <div flex
-             class="content-section"
-             ng-show="main.activeSection == 1"
-             ng-include="'app/content/webchat.html'">
-        </div>
-
-
-        <div flex
-             class="content-section"
-             ng-show="main.activeSection == 2"
-             ng-include="'app/content/reddit.html'">
-        </div>
-
-
-      </md-content>
+      <gp-content></gp-content>
 
 
     </md-sidenav>
@@ -170,13 +140,11 @@
     <!-- Main Column
     –––––––––––––––––––––––––––––––––––––––––––––––––– -->
 
-    <div class="gp-main" layout="column" layout-gt-md="row" layout-fill>
+    <div class="gp-main" flex>
 
 
         <!-- Player -->
-        <gp-player flex
-                   layout-fill
-                   channel-id="20560398">
+        <gp-player channel-id="20560398">
         </gp-player>
 
 
@@ -198,15 +166,8 @@
                 md-is-locked-open="$mdMedia('gt-lg') && main.sidenavIsOpen"
                 md-component-id="right">
 
-      <md-content flex
-                  layout-padding>
-
-
         <!-- Playlist -->
         <gp-playlist></gp-playlist>
-
-
-      </md-content>
 
     </md-sidenav>
 
@@ -219,7 +180,7 @@
 
 
 
-  </main>
+  </div>
 
   <!-- end main row –––––––––––––––––––––––––––––––– -->
 
