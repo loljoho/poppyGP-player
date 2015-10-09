@@ -104,7 +104,7 @@
   <!-- Main Row
   –––––––––––––––––––––––––––––––––––––––––––––––––– -->
 
-  <main layout="row" flex>
+  <div class="gp-main-row" layout="row" flex>
 
 
 
@@ -137,13 +137,11 @@
     <!-- Main Column
     –––––––––––––––––––––––––––––––––––––––––––––––––– -->
 
-    <div class="gp-main" layout="column" layout-gt-md="row" layout-fill>
+    <div class="gp-main" flex>
 
 
         <!-- Player -->
-        <gp-player flex
-                   layout-fill
-                   channel-id="20560398">
+        <gp-player channel-id="20560398">
         </gp-player>
 
 
@@ -179,7 +177,7 @@
 
 
 
-  </main>
+  </div>
 
   <!-- end main row –––––––––––––––––––––––––––––––– -->
 

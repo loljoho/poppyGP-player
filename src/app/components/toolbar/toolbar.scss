@@ -1,7 +1,7 @@
 /* Variables
 –––––––––––––––––––––––––––––––––––––––––––––––––– */
 
-$toolbar-color:       rgba(0, 0, 0, 0.70);
+$toolbar-color:       rgba(34, 34, 34, 0.70);
 $toolbar-height:      48px;
 $button-active-color: #2ab4a5;
 
@@ -19,7 +19,7 @@ $button-active-color: #2ab4a5;
 
 gp-toolbar {
 
-  > md-toolbar {
+  > md-toolbar.gp-toolbar {
 
     @include all-height($toolbar-height);
     background: $toolbar-color;

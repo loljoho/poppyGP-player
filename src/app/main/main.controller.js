@@ -9,31 +9,47 @@
   function MainController($log, $timeout, $mdMedia, $mdSidenav) {
     var self = this;
 
+
     // Content Section
+    // ------------------------------
+
     self.toggleSection    = toggleSection;
     self.activeSection    = 0;
 
+
     // Playlist Sidenav
+    // ------------------------------
+
     self.toggleSidenav    = toggleSidenav;
     self.sidenavIsOpen    = false;
 
+
     // Content Panel
+    // ------------------------------
+
     self.toggleContent    = toggleContent;
     self.contentIsOpen    = true;
 
+
     // Fullscreen
+    // ------------------------------
+
     self.toggleFullscreen = toggleFullscreen;
     self.isFullscreen     = false;
 
-    activate();
+
 
 
     /* Controller Startup Logic
     –––––––––––––––––––––––––––––––––––––––––––––––––– */
 
+    activate();
+
     function activate() {
       self.sidenavIsOpen = $mdMedia('gt-lg') ? true : false;
     }
+
+
 
 
     /* Content Section Toggle
@@ -58,14 +74,15 @@
     }
 
 
+
+
     /* Content Controls
     –––––––––––––––––––––––––––––––––––––––––––––––––– */
 
     function toggleContent() {
       if(self.contentIsOpen) {
         closeContent();
-      }
-      else {
+      } else {
         openContent();
       }
     }
@@ -83,14 +100,15 @@
     }
 
 
+
+
     /* Sidenav Controls
     –––––––––––––––––––––––––––––––––––––––––––––––––– */
 
     function toggleSidenav() {
       if(self.sidenavIsOpen) {
         closeSidenav();
-      }
-      else {
+      } else {
         openSidenav();
       }
     }
@@ -108,6 +126,8 @@
     }
 
 
+
+
     /* Toggle Fullscreen
     –––––––––––––––––––––––––––––––––––––––––––––––––– */
 
@@ -118,6 +138,9 @@
       }
       self.isFullscreen = !self.isFullscreen;
     }
+
+
+
 
   }
 })();

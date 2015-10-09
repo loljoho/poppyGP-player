@@ -215,7 +215,7 @@ body {
 –––––––––––––––––––––––––––––––––––––––––––––––––– */
 
 md-sidenav.md-sidenav-right {
-  background: transparent;
+  //background: transparent;
   @include all-width(256px);
   z-index: 900;
 }
