@@ -317,6 +317,15 @@
     </md-button>
 
 
+    <!-- Help -->
+    <md-button class="md-icon-button"
+               ng-class="{'active' : main.activeSection == 3}"
+               ng-click="main.toggleSection(3)"
+               aria-label="Reddit">
+      <md-icon class="material-icons">help</md-icon>
+    </md-button>
+
+
     <!-- Toggle Sidebar -->
     <md-button class="md-icon-button"
                ng-click="main.toggleContent()"
