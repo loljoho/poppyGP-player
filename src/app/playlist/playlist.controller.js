@@ -3,8 +3,7 @@
 
   angular
     .module('gpApp.playlist')
-    .controller('PlaylistController', PlaylistController)
-    .filter('isPast', isPast);
+    .controller('PlaylistController', PlaylistController);
 
 
   /** @ngInject */
@@ -84,15 +83,6 @@
 
 
   } // PlaylistController
-
-  /** @ngInject */
-  function isPast(moment) {
-    return function(items) {
-      return items.filter(function(item) {
-        return moment(item.playtime).isAfter();
-      });
-    };
-  }
 
 
 })();
