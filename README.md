@@ -65,43 +65,62 @@ __Application Structure__
 ```
 src/
 ├── app/
-│   ├── core/                       --> CORE MODULE
+│   │
+│   ├── core/                         --> CORE MODULE
 │   │   ├── core.module.js
 │   │   ├── core.config.js
 │   │   ├── core.constants.js
 │   │   └── core.run.js
-│   ├── common/                     --> SHARED MODULES
-│   │   ├── exception/              --> Exception Handler
-│   │   ├── logger/                 --> Logging Service
-│   │   └── router/                 --> Router Provider
 │   │
-│   ├── components/                 --> APP COMPONENTS
-│   │   ├── 
-│   │   ├── 
-│   │   └── 
-│   ├── layout/                     --> APP LAYOUT
-│   │   ├── 
-│   │   ├── 
-│   │   └── 
+│   ├── common/                       --> SHARED MODULES
+│   │   ├── exception/                --> Exception Handler
+│   │   └── logger/                   --> Logging Service
 │   │
-│   ├── 
-│   └──
+│   ├── components/                   --> COMPONENTS MODULE
+│   │   ├── brand/
+│   │   ├── player/
+│   │   ├── toolbar/
+│   │   └── components.module.js
+│   │
+│   ├── main/                         --> MAIN APPLICATION MODULE
+│   │   ├── main.controller.js
+│   │   ├── main.html
+│   │   └── main.module.js
+│   │
+│   ├── content/                      --> CONTENT FEATURE MODULE
+│   │   ├── partials/
+│   │   │   ├── info.html
+│   │   │   ├── chat.html
+│   │   │   ├── reddit.html
+│   │   │   └── help.html
+│   │   ├── content.controller.js
+│   │   ├── content.directive.js
+│   │   ├── content.html
+│   │   ├── content.scss
+│   │   └── content.module.js
+│   │
+│   ├── playlist/                     --> PLAYLIST FEATURE MODULE
+│   │   ├── playlist.controller.js
+│   │   ├── playlist.directive.js
+│   │   ├── playlist.filter.js
+│   │   ├── playlist.service.js
+│   │   └── playlist.module.js
+│   │
+│   ├── index.module.js               --> Module Index
+│   └── index.scss                    --> Stylesheet Index
+│   
 ├── assets/
-│   ├── data/                       --> Data Files
-│   ├── icons/                      --> SVG Icons
-│   ├── images/                     --> PNG/JPG/GIF
-│   └── touch/                      --> Mobile/Touch Icons
-├──
-├──
-├──
-├──
-│   ├──
-│   ├──
-│   ├──
-│   ├──
-│   ├──
-│   └──
-└──
+│   ├── data/                         --> Data Files
+│   ├── icons/                        --> SVG Icons
+│   ├── images/                       --> PNG/JPG/GIF
+│   └── touch/                        --> Mobile/Touch Icons
+│   
+├── apple-touch-icon.png
+├── favicon.ico
+├── favicon-16x16.png
+├── favicon-32x32.png
+├── favicon-96x96.png
+└── index.html
 ```
 
 
