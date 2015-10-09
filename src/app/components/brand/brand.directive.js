@@ -2,7 +2,7 @@
   'use strict';
 
   angular
-    .module('gpApp.components')
+    .module('gpApp')
     .directive('gpBrand', gpBrandDirective);
 
   /** @ngInject */
