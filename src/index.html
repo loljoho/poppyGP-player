@@ -1,5 +1,9 @@
 <!doctype html>
-<html class="no-js" ng-app="gpApp">
+<html class="no-js" 
+      ng-app="gpApp"
+      ng-controller="MainController as main"
+      ng-swipe-left="main.toggleContent()"
+      ng-swipe-right="main.toggleSidenav()">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -46,8 +50,7 @@
 
 
 </head>
-<body layout="column"
-      ng-controller="MainController as main">
+<body layout="column">
 
 
 
