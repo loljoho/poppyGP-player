@@ -56,7 +56,7 @@ $viewport-xl: $viewport-lg-md;
 
 
 // ngMaterial Easing Curves
-//--------------------------------------------
+// ------------------------------
 
 $swift-ease-out-duration: 0.4s !default;
 $swift-ease-out-timing-function: cubic-bezier(0.25, 0.8, 0.25, 1) !default;
@@ -82,15 +82,19 @@ $swift-ease-in-out: all $swift-ease-in-out-duration $swift-ease-in-out-timing-fu
 /* Functions
 –––––––––––––––––––––––––––––––––––––––––––––––––– */
 
+
 // Retrieve name of next breakpoint (or null for last)
 // ------------------------------
+
 @function next-bp($name, $bps: $device-breakpoints, $names: map-keys($bps)) {
   $n: index($names, $name);
   @return if($n < length($names), nth($names, $n + 1), null);
 }
 
+
 // Retrieve breakpoint min width (or null for first)
 // ------------------------------
+
 @function min-bp($name, $bps: $device-breakpoints) {
   $min: map-get($bps, $name);
   @return if($min != 0, $min, null);
@@ -99,6 +103,7 @@ $swift-ease-in-out: all $swift-ease-in-out-duration $swift-ease-in-out-timing-fu
 
 // Retrieve breakpoint max width (or null for last)
 // ------------------------------
+
 @function max-bp($name, $bps: $device-breakpoints) {
   $next: next-bp($name, $bps);
   @return if($next, min-bp($next, $bps) - 1px, null);
@@ -130,7 +135,7 @@ $swift-ease-in-out: all $swift-ease-in-out-duration $swift-ease-in-out-timing-fu
 }
 
 
-// breakpoint <=
+// @media min-width
 // ------------------------------
 
 @mixin media-gt($name, $bps: $device-breakpoints) {
@@ -146,7 +151,7 @@ $swift-ease-in-out: all $swift-ease-in-out-duration $swift-ease-in-out-timing-fu
 }
 
 
-// < breakpoint
+// @media max-width
 // ------------------------------
 
 @mixin media-lt($name, $bps: $device-breakpoints) {
@@ -214,37 +219,6 @@ body {
 /* Layout
 –––––––––––––––––––––––––––––––––––––––––––––––––– */
 
-md-sidenav.md-sidenav-right {
-  //background: transparent;
-  @include all-width(256px);
-  z-index: 900;
-}
-
-md-sidenav.md-sidenav-left {
-  
-  &.md-locked-open {
-    max-width: 360px;
-    width: 25%;
-    z-index: 200;
-  }
-  md-content.sidenav-content {
-    background: transparent;
-  }
-}
-
-@media (min-width: $viewport-sm) {
-  md-sidenav.md-sidenav-left {
-    min-width: 280px;
-  }
-}
-
-@media (min-width: $viewport-md) {
-  md-sidenav.md-sidenav-left {
-    &.md-locked-open {
-      min-width: 320px;
-    }
-  }
-}
 
 /* end layout –––––––––––––––––––––––––––––––––––– */
 
@@ -263,8 +237,11 @@ md-sidenav.md-sidenav-left {
 
 // remove md-sidenav backdrop above sm
 @media (min-width: $viewport-sm) {
-  md-backdrop.md-sidenav-backdrop {
+  md-backdrop.md-sidenav-backdrop,
+  md-backdrop.md-sidenav-backdrop.md-opaque.ng-leave {
     display: none;
+    opacity: 1 !important;
+    transition: none !important;
   }
 }
 
