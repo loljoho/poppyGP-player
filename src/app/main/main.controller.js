@@ -2,7 +2,7 @@
   'use strict';
 
   angular
-    .module('gpApp')
+    .module('gpApp.main')
     .controller('MainController', MainController);
 
   /** @ngInject */
@@ -25,10 +25,11 @@
     self.toggleFullscreen = toggleFullscreen;
     self.isFullscreen     = false;
 
-
-
-
     activate();
+
+
+    /* Controller Startup Logic
+    –––––––––––––––––––––––––––––––––––––––––––––––––– */
 
     function activate() {
       self.sidenavIsOpen = $mdMedia('gt-lg') ? true : false;
@@ -111,13 +112,9 @@
     –––––––––––––––––––––––––––––––––––––––––––––––––– */
 
     function toggleFullscreen() {
-      if(self.isFullscreen) {
-        openSidenav();
-        openContent();
-      }
-      else {
+      if(!self.isFullscreen) {
         closeSidenav();
-        closeContent();        
+        closeContent();
       }
       self.isFullscreen = !self.isFullscreen;
     }

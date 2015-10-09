@@ -5,13 +5,18 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
 
+
   <!-- Page Title
   –––––––––––––––––––––––––––––––––––––––––––––––––– -->
   <title ng-bind="title"></title>
 
+
   <!-- Metadata
   –––––––––––––––––––––––––––––––––––––––––––––––––– -->
 
+
+  <!-- Fonts & Icons
+  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
 
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,300,300italic,400italic,600,200" rel="stylesheet">
@@ -54,19 +59,7 @@
   <!-- Browse Happy
   –––––––––––––––––––––––––––––––––––––––––––––––––– -->
 
-  <!--[if lt IE 10]>
-    <p class="browsehappy">
-      You are using an
-      <strong>
-        outdated
-      </strong>
-      browser. Please
-      <a href="http://browsehappy.com/">
-        upgrade your browser
-      </a>
-      to improve your experience.
-    </p>
-  <![endif]-->
+  <!--[if lt IE 10]><p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p><![endif]-->
 
   <!-- end browse happy –––––––––––––––––––––––––––– -->
 
@@ -89,7 +82,6 @@
 
     <!-- Spacer -->
     <span flex></span>
-
 
     <!-- Toggle Playlist -->
     <md-button class="md-icon-button"
@@ -128,32 +120,7 @@
                 md-is-locked-open="main.contentIsOpen"
                 md-component-id="left">
 
-
-      <md-content class="md-scroll-y" flex layout="column" layout-fill>
-
-
-        <div flex
-             class="content-section"
-             ng-show="main.activeSection == 0"
-             ng-include="'app/content/info.html'">
-        </div>
-
-
-        <div flex
-             class="content-section"
-             ng-show="main.activeSection == 1"
-             ng-include="'app/content/webchat.html'">
-        </div>
-
-
-        <div flex
-             class="content-section"
-             ng-show="main.activeSection == 2"
-             ng-include="'app/content/reddit.html'">
-        </div>
-
-
-      </md-content>
+      <gp-content></gp-content>
 
 
     </md-sidenav>
@@ -198,15 +165,8 @@
                 md-is-locked-open="$mdMedia('gt-lg') && main.sidenavIsOpen"
                 md-component-id="right">
 
-      <md-content flex
-                  layout-padding>
-
-
         <!-- Playlist -->
         <gp-playlist></gp-playlist>
-
-
-      </md-content>
 
     </md-sidenav>
 

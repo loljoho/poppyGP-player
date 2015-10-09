@@ -1,0 +1,12 @@
+<md-content class="md-scroll-y" flex layout="column" layout-fill>
+
+  <section class="content-section" 
+           flex
+           ng-repeat="section in content.sectionList"
+           ng-class="section.name | lowercase"
+           ng-show="main.activeSection == $index"
+           ng-include="section.tmpl">
+           
+  </section>
+
+</md-content>
