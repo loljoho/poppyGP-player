@@ -11,6 +11,8 @@
 
 md-sidenav {
   &.gp-playlist-sidenav {
+    margin-top: 48px;
+    margin-bottom: 48px;
     &.md-locked-open {
       max-width: 256px;
       min-width: 200px;
@@ -82,6 +84,8 @@ md-sidenav {
 @media (min-width: $viewport-lg) {
   md-sidenav {
     &.gp-playlist-sidenav {
+        margin-top: 0;
+        margin-bottom: 0;
       &.md-locked-open {
         max-width: 256px;
         min-width: 200px;

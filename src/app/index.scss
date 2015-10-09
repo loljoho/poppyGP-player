@@ -236,7 +236,7 @@ body {
 –––––––––––––––––––––––––––––––––––––––––––––––––– */
 
 // remove md-sidenav backdrop above sm
-@media (min-width: $viewport-sm) {
+@media (min-width: $viewport-lg) {
   md-backdrop.md-sidenav-backdrop,
   md-backdrop.md-sidenav-backdrop.md-opaque.ng-leave {
     display: none;
