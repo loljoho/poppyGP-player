@@ -2,7 +2,7 @@
   'use strict';
 
   angular
-    .module('gpApp.core')
+    .module('gpApp')
     .run(runBlock);
 
   /** @ngInject */

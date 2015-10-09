@@ -2,7 +2,7 @@
   'use strict';
 
   angular
-    .module('gpApp.playlist')
+    .module('gpApp')
     .directive('gpPlaylist', gpPlaylistDirective);
 
   /* @ngInject */
@@ -11,7 +11,7 @@
       restrict: 'E',
       replace: false,
       transclude: false,
-      templateUrl: 'app/playlist/playlist.html',
+      templateUrl: 'app/components/playlist/playlist.html',
       controller: 'PlaylistController',
       controllerAs: 'playlist'
     };

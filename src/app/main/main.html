@@ -1,0 +1,61 @@
+
+<!-- Playlist Sidenav
+–––––––––––––––––––––––––––––––––––––––––––––––––– -->
+
+<md-sidenav class="md-sidenav-left md-whiteframe-z2"
+            md-component-id="left"
+            md-is-open="main.sidenavIsOpen"
+            md-is-locked-open="$mdMedia('gt-md') && main.sidenavIsOpen"
+            layout="column">
+  <md-toolbar class="gp-toolbar" hide-gt-md>
+  </md-toolbar>
+  <md-content layout-padding flex>
+    <gp-playlist>
+
+    </gp-playlist>
+  </md-content>
+
+</md-sidenav>
+
+
+
+
+<!-- Main Column
+–––––––––––––––––––––––––––––––––––––––––––––––––– -->
+
+<div class="gp-main" layout="column" layout-gt-md="row" layout-fill>
+
+
+
+
+  <!-- Video Container
+  ––––––––––––––––––––––––––––––––––––––––––––––––––
+
+  <div class="gp-video-container" flex="45" flex-md="55" flex-lg="65" flex-gt-lg="75">
+  -->
+  <div class="gp-video-container" flex>
+
+    <gp-player flex layout-fill channel-id="20560398">
+    </gp-player>
+
+  </div><!--.gp-video-container-->
+
+
+  <!-- Site Content
+  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+
+  <md-sidenav class="gp-content"
+              md-component-id="right"
+              md-is-open="!main.isFullscreen"
+              md-is-locked-open="!main.isFullscreen"
+              flex
+              layout="row"
+              layout-gt-md="column">
+
+    <md-content flex layout-fill layout="column" md-scroll-y ng-include="'app/layout/content/content.html'">
+    </md-content>
+
+  </md-sidenav>
+
+
+</div><!--.gp-main-->
