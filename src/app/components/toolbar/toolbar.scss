@@ -1,0 +1,158 @@
+/* Variables
+–––––––––––––––––––––––––––––––––––––––––––––––––– */
+
+$toolbar-color:       rgba(34, 34, 34, 0.70);
+$toolbar-height:      48px;
+$button-active-color: #2ab4a5;
+
+/* end variables ––––––––––––––––––––––––––––––––– */
+
+
+
+
+
+
+
+
+/* Toolbar Styles
+–––––––––––––––––––––––––––––––––––––––––––––––––– */
+
+gp-toolbar {
+
+  > md-toolbar.gp-toolbar {
+
+    @include all-height($toolbar-height);
+    background: $toolbar-color;
+
+    >.md-toolbar-tools {
+
+      @include all-height($toolbar-height);
+      background: $toolbar-color;
+
+    }
+  }
+
+
+
+
+/* Top Toolbar
+–––––––––––––––––––––––––––––––––––––––––––––––––– */
+
+gp-toolbar {
+
+  &.gp-toolbar-top {
+
+
+
+  }
+}
+
+/* end toolbar ––––––––––––––––––––––––––––––––––– */
+
+
+
+
+
+
+
+
+/* Bottom Toolbar
+–––––––––––––––––––––––––––––––––––––––––––––––––– */
+
+  &.gp-toolbar-bottom {
+
+
+    // Fix pesky icons (temporary)
+    // ------------------------------
+
+    .reddit {
+      margin-bottom: 7px;
+    }
+    .twitter {
+      margin-bottom: 7px;
+    }
+
+
+    // Active button
+    // ------------------------------
+
+    .md-button {
+      &.active {
+        md-icon {
+          color: $button-active-color;
+          svg {
+            fill: $button-active-color;
+          }
+        }
+      }
+    }
+  }
+
+/* end toolbar ––––––––––––––––––––––––––––––––––– */
+
+
+
+
+
+
+
+
+  /* Fullscreen Toggle Animation
+  –––––––––––––––––––––––––––––––––––––––––––––––––– */
+
+
+  &.is-fullscreen {
+    position: absolute;
+    &.gp-toolbar-top {
+      transform: translate3d(0, -100%, 0);
+    }
+
+    &.gp-toolbar-bottom {
+      transform: translate3d(0, 100%, 0);
+    }
+  }
+
+  &.is-fullscreen-add, 
+  &.is-fullscreen-remove {
+    position: relative;
+    transition: 0.2s ease-in all;
+  }
+
+  &.is-fullscreen-add-active,
+  &.is-fullscreen-remove-active {
+    transition: height $swift-ease-in-duration $swift-ease-in-timing-function,
+                min-height $swift-ease-in-duration $swift-ease-in-timing-function;
+  }
+
+  &.is-fullscreen-add.is-fullscreen-add-active,
+  &.is-fullscreen-remove.is-fullscreen-remove-active {
+    transition: $swift-ease-out;
+  }
+
+}
+
+.button-fullscreen {
+
+  bottom: 0;
+  position: absolute;
+  right: 0px;
+  z-index: 500;
+
+  md-icon {
+    color: #fff;
+  }
+
+  &.is-fullscreen {
+    .md-ripple-container {
+      background-color: rgba(255, 0, 0, 0.11);
+    }
+  }
+
+  /* end toggle –––––––––––––––––––––––––––––––––––– */
+
+
+
+
+}
+
+/* end toolbar ––––––––––––––––––––––––––––––––––– */

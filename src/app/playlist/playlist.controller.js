@@ -2,7 +2,7 @@
   'use strict';
 
   angular
-    .module('gpApp')
+    .module('gpApp.playlist')
     .controller('PlaylistController', PlaylistController)
     .filter('isPast', isPast);
 

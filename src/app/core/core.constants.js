@@ -3,7 +3,7 @@
   'use strict';
 
   angular
-    .module('gpApp')
+    .module('gpApp.core')
     .constant('toastr', toastr)
     .constant('moment', moment);
 
