@@ -7,12 +7,12 @@
 
 
   /** @ngInject */
-  function PlaylistController($log, $timeout, playlistService, moment) {
+  function PlaylistController($timeout, playlistService, moment) {
     var self = this;
 
     self.response = {};
     self.trackList = [];
-    self.startTime = moment('2015-10-07T19:29:20-05:00');
+    self.startTime = moment('2015-10-10T19:29:20-05:00');
     self.currentTime = moment();
     self.currentTrack = {};
 
@@ -32,7 +32,6 @@
 
 
 
-      // $resource.get
       playlistService.get().$promise.then(function(response) {
 
         var counter = moment(self.startTime);

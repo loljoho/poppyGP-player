@@ -108,11 +108,11 @@ gp-toolbar {
     }
 
     &.gp-toolbar-bottom {
-      transform: translate3d(0, 100%, 0);
+      transform: translate3d(0, 200%, 0);
     }
   }
 
-  &.is-fullscreen-add, 
+  &.is-fullscreen-add,
   &.is-fullscreen-remove {
     position: relative;
     transition: 0.2s ease-in all;
