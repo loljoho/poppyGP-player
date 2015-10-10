@@ -18,10 +18,10 @@
 
 
       // Reusable Blocks
-      // ------------------------------      
+      // ------------------------------
 
-      'blocks.exception', 
-      'blocks.logger',
+      //'blocks.exception',
+      //'blocks.logger',
 
 
       // Third-Party Modules
@@ -30,7 +30,7 @@
       'angularMoment',
       'xml'
 
-      
+
     ]);
 
 })();

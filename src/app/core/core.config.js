@@ -35,7 +35,7 @@
   –––––––––––––––––––––––––––––––––––––––––––––––––– */
 
   /** @ngInject */
-  function configure($logProvider, $sceDelegateProvider, exceptionHandlerProvider) {
+  function configure($logProvider, $sceDelegateProvider) {//, exceptionHandlerProvider) {
 
 
     // Enable Log
@@ -47,7 +47,7 @@
     // Configure common exception handler
     // ------------------------------
 
-    exceptionHandlerProvider.configure('[poppyGP AngularJS Error]');
+    //exceptionHandlerProvider.configure('[poppyGP AngularJS Error]');
 
 
     // Whitelist Embed URLs
