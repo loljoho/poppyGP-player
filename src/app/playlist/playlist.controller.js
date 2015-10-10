@@ -12,7 +12,7 @@
 
     self.response = {};
     self.trackList = [];
-    self.startTime = moment('2015-10-07T14:22:00-05:00');
+    self.startTime = moment('2015-10-07T19:29:20-05:00');
     self.currentTime = moment();
     self.currentTrack = {};
 
