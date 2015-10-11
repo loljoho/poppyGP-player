@@ -214,7 +214,7 @@
         <gp-player channel-id="20560398">
         </gp-player>
 
-
+        <!-- Allows swipe over iframe -->
         <div class="swipe-path horizontal top"></div>
         <div class="swipe-path horizontal bottom"></div>
         <div class="swipe-path vertical right"></div>
@@ -361,11 +361,6 @@
            ng-class="{ 'is-fullscreen md-fab md-mini' : main.isFullscreen, 'md-icon-button' : !main.isFullscreen }"
            ng-click="main.toggleFullscreen()"
            aria-label="Toggle Fullscreen">
-  <!--
-  <md-icon class="material-icons" ng-if="!main.isFullscreen">fullscreen</md-icon>
-  <md-icon class="material-icons" ng-if="main.isFullscreen">fullscreen_exit</md-icon>
-  <md-tooltip>Toggle Fullscreen</md-tooltip>
-  -->
   <md-icon class="material-icons">
     {{ main.isFullscreen ? "fullscreen_exit" : "fullscreen" }}
   </md-icon>

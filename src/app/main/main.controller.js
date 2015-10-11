@@ -136,7 +136,9 @@
         closeSidenav();
         closeContent();
       }
-      self.isFullscreen = !self.isFullscreen;
+      $timeout(function() {
+        self.isFullscreen = !self.isFullscreen;
+      }, 200);
     }
 
 
