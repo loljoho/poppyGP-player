@@ -89,6 +89,14 @@ gp-toolbar {
         }
       }
     }
+
+
+    // Collapse buttons on small viewports
+    // ------------------------------
+
+
+
+
   }
 
 /* end toolbar ––––––––––––––––––––––––––––––––––– */
@@ -124,41 +132,65 @@ gp-toolbar {
   &.is-fullscreen-add-active,
   &.is-fullscreen-remove-active {
     transition: height $swift-ease-in-duration $swift-ease-in-timing-function,
-                min-height $swift-ease-in-duration $swift-ease-in-timing-function;
+                min-height $swift-ease-in-duration $swift-ease-in-timing-function,
+                max-height $swift-ease-in-duration $swift-ease-in-timing-function;
   }
 
   &.is-fullscreen-add.is-fullscreen-add-active,
   &.is-fullscreen-remove.is-fullscreen-remove-active {
     transition: $swift-ease-out;
   }
-
 }
 
-.button-fullscreen {
+/* end animation ––––––––––––––––––––––––––––––––– */
 
-  bottom: 0;
+
+
+
+
+
+
+
+/* Fullscreen Toggle Button
+–––––––––––––––––––––––––––––––––––––––––––––––––– */
+
+.button-fullscreen {
+  display: block;
   position: absolute;
-  right: 0px;
+
+  right: 0;
+  bottom: 2px;
+
   z-index: 500;
+  transition: 0.2s ease-in all;
 
   md-icon {
     color: #fff;
   }
 
   &.is-fullscreen {
+    right: 0;
+    transform: translate(calc(-100% + 48px), calc(-100% + 48px));
+    bottom: 36px;
+    transition: $swift-ease-in-duration $swift-ease-in-timing-function all;
     .md-ripple-container {
       background-color: rgba(255, 0, 0, 0.11);
     }
   }
-
-  /* end toggle –––––––––––––––––––––––––––––––––––– */
-
-
-
-
 }
 
-/* end toolbar ––––––––––––––––––––––––––––––––––– */
+
+// Move above player bar
+// ------------------------------
+
+@media only screen and (min-width: 0) and (max-width: $viewport-sm) and (orientation: portrait) {
+  .button-fullscreen {
+    &.is-fullscreen {
+    }
+  }
+}
+
+/* end button –––––––––––––––––––––––––––––––––––– */
 
 
 
