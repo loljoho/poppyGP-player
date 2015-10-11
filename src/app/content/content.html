@@ -6,6 +6,7 @@
 
   <section class="content-section"
            flex
+           ng-cloak
            ng-repeat="section in content.sectionList"
            ng-class="section.name | lowercase"
            ng-show="main.activeSection == $index"

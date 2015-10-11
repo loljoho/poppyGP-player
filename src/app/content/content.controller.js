@@ -9,13 +9,29 @@
   function ContentController() {
     var self = this;
 
+
+    // Sections
+    // ------------------------------
+
     self.sectionList = [];
+
+
+
+
+    /* Controller Startup Logic
+    –––––––––––––––––––––––––––––––––––––––––––––––––– */
 
     activate();
 
     function activate() {
       getContentSections();
     }
+
+
+
+
+    /* Content Sections and Templates
+    –––––––––––––––––––––––––––––––––––––––––––––––––– */
 
     function getContentSections() {
       self.sectionList = [{

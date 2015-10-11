@@ -1,9 +1,12 @@
 /* Variables
 –––––––––––––––––––––––––––––––––––––––––––––––––– */
 
-$toolbar-color:       rgba(34, 34, 34, 0.70);
-$toolbar-height:      48px;
-$button-active-color: #2ab4a5;
+$toolbar-color:           rgba(34, 34, 34, 0.70);
+$button-active-color:     #2ab4a5;
+$toolbar-height:          48px;
+
+$toolbar-height-mobile-portrait:  42px;
+$toolbar-height-mobile-landscape: 36px;
 
 /* end variables ––––––––––––––––––––––––––––––––– */
 
@@ -156,3 +159,43 @@ gp-toolbar {
 }
 
 /* end toolbar ––––––––––––––––––––––––––––––––––– */
+
+
+
+
+
+
+
+
+/* Mobile Sizes
+–––––––––––––––––––––––––––––––––––––––––––––––––– */
+
+
+// Handle mobile portrait
+// ------------------------------
+
+@media only screen and (min-width: 0) and (max-width: $viewport-sm) and (orientation: portrait) {
+  gp-toolbar {
+    > md-toolbar.gp-toolbar {
+      @include all-height($toolbar-height-mobile-portrait);
+      >.md-toolbar-tools {
+        @include all-height($toolbar-height-mobile-portrait);
+      }
+    }
+  }
+}
+
+// Handle mobile landscape
+// ------------------------------
+@media only screen and (min-width: 0) and (max-width: $viewport-sm) and (orientation: landscape) {
+  gp-toolbar {
+    > md-toolbar.gp-toolbar {
+      @include all-height($toolbar-height-mobile-landscape);
+      >.md-toolbar-tools {
+        @include all-height($toolbar-height-mobile-landscape);
+      }
+    }
+  }
+}
+
+/* end mobile sizes –––––––––––––––––––––––––––––– */
