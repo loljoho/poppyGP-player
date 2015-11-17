@@ -1,7 +1,7 @@
 poppyGP-player
 ==============
 
-__NOTICE (17-Nov 2015)__ - this project is being rewritten and integrated with the back-end components into a single repository.  Click [here](https://github.com/poppyGP/poppyGP) to view the latest changes.
+__NOTICE (17-Nov 2015)__ - this project is being rewritten and integrated with the back-end components into a single repository.  Click [here](https://github.com/poppyGP/poppyGP) to view the current repository and latest development/updates.
 
 
 
